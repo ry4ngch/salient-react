@@ -25,12 +25,7 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
-          options: {
-            presets: [
-              '@babel/preset-env',
-              '@babel/preset-react',
-            ],
-          },
+          // Uses .babelrc for preset configuration (includes runtime: automatic for React 19)
         },
       },
       // Do NOT define .scss/.css rules here — those belong in dev/prod configs
