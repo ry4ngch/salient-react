@@ -37,3 +37,8 @@ Desktop.ini    # Windows
 # Ignore AI agent files
 .zencoder
 .zenflow
+
+# Ignore build outputs
+public/
+dist/
+*.LICENSE.txt
