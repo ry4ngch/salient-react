@@ -14,18 +14,18 @@ The **Salient library** was developed to simplify development by eliminating the
 ## Installation
 
 ```bash
-npm install salient-react
+npm install @ry4ngch/salient-react
 # or
-pnpm add salient-react
+pnpm add @ry4ngch/salient-react
 # or
-yarn add salient-react
+yarn add @ry4ngch/salient-react
 ```
 
 ## Quick Start
 
 ```jsx
-import { Button, Table, Card, Navbar, Timeline, Modal, Accordian, Tab, Breadcrumb, Dropdown, NumericField, TextField, List, Banner, Sidebar, Grid, Progress, Treeview, Pagination } from 'salient-react';
-import 'salient-react/dist/salient-react.css';
+import { Button, Table, Card, Navbar, Timeline, Modal, Accordian, Tab, Breadcrumb, Dropdown, NumericField, TextField, List, Banner, Sidebar, Grid, Progress, Treeview, Pagination } from '@ry4ngch/salient-react';
+import '@ry4ngch/salient-react/dist/salient-react.css';
 
 function App() {
   return (
