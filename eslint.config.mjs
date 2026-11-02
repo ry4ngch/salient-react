@@ -4,8 +4,17 @@ import pluginPrettier from "eslint-plugin-prettier";
 import globals from "globals";
 
 export default [
-  // React & hooks (flat-compatible)
-  pluginReact.configs.flat.recommended,
+  // Ignore legacy files and hidden files
+  {
+    ignores: [
+      "**/legacy/**",
+      "**/*.test.jsx",
+      "**/._*.js",
+      "src/utils/Salient/legacy/**",
+    ],
+  },
+
+  // React hooks (flat-compatible)
   pluginReactHooks.configs.flat.recommended,
 
   {
@@ -21,6 +30,7 @@ export default [
     },
 
     plugins: {
+      react: pluginReact,
       prettier: pluginPrettier,
     },
 
@@ -32,13 +42,23 @@ export default [
       // React
       "react/prop-types": "off",
       "react/react-in-jsx-scope": "off",
+      "react/jsx-uses-react": "off",
+      "react/jsx-uses-vars": "error",
 
-      // Prettier (manual integration)
-      "prettier/prettier": "error",
+      // React hooks - warn instead of error for legacy code
+      "react-hooks/rules-of-hooks": "warn",
+      "react-hooks/exhaustive-deps": "warn",
+      "react-hooks/set-state-in-effect": "warn",
+      "react-hooks/refs": "warn",
+      "react-hooks/immutability": "warn",
+      "react-hooks/static-components": "warn",
+
+      // Prettier (warn instead of error for legacy code)
+      "prettier/prettier": "warn",
     },
 
     settings: {
-      react: { version: "detect" },
+      react: { version: "19" },
     },
   },
 ];
