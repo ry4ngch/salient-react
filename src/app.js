@@ -44,7 +44,7 @@ import IconsDemo from './pages/IconsDemo';
 import { AppProvider } from './store/navigate-context';
 
 // import jQuery
-import 'jquery';
+// import 'jquery';
 
 const root = createRoot(document.getElementById('app'));
 
@@ -153,7 +153,6 @@ class App extends Component {
 	}
 
 	componentDidMount(){
-		console.log('jQuery version', $.fn.jquery);
 		const flag = process.env.REACT_APP_MAINTENANCE_MODE === 'true';
 		this.setState((prevState) => {
 			return {

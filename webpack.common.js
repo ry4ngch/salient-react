@@ -49,11 +49,23 @@ module.exports = {
       filename: 'index.html',
     }),
 
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      Popper: ['popper.js', 'default'],
-    }),
+    // Workaround for Watchpack EACCES errors on restricted directories
+    {
+      apply: function(compiler) {
+        const lookupSet = new Set(["/", "/data", "/data/data"]);
+        compiler.hooks.done.tap("WatchpackBugWorkaroundPlugin", (stats) => {
+          for (const item of stats.compilation.fileDependencies) {
+            if (lookupSet.has(item)) {
+              console.log(
+                "[WatchpackBugWorkaroundPlugin] remove inaccessible fileDependency",
+                item
+              );
+              stats.compilation.fileDependencies.delete(item);
+            }
+          }
+        });
+      },
+    },
   ],
 
   // Avoid unnecessary warnings clutter

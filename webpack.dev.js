@@ -96,4 +96,9 @@ module.exports = merge(common, {
     runtimeChunk: 'single', // helps prevent HMR invalidation, Reduces module duplication in hot updates
     splitChunks: false,
   },
+
+  // Ignore inaccessible directories in Termux/Android to prevent Watchpack EACCES errors
+  watchOptions: {
+    ignored: ['**/node_modules', '/data/**', '/data/data/**', '/**'],
+  },
 });
