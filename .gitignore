@@ -39,6 +39,7 @@ Desktop.ini    # Windows
 .zenflow
 
 # Ignore build outputs
-public/
+public/bundle*
+public/styles*
 dist/
 *.LICENSE.txt
