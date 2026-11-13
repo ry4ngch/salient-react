@@ -15,6 +15,7 @@ import './styles/styles.scss';
 // import pages & layouts
 import Root from './layout/Root';
 import ErrorPage from './pages/Error';
+import Showcase from './pages/Showcase';
 import Dashboard from './pages/Dashboard';
 import TablesDemo from './pages/TablesDemo';
 import CardsDemo from './pages/CardsDemo';
@@ -56,8 +57,12 @@ const router = createBrowserRouter([
 		children: [
 			{
 				index: true, //when path is '/'
+				element: <Showcase/>
+			},
+			{
+				path: '/dashboard',
 				element: <Dashboard/>
-			}, 
+			},
 			{
 				path: '/tables',
 				element: <TablesDemo/>

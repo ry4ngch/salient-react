@@ -4,12 +4,56 @@ import React, {useState} from 'react'
 import Card, {CardInfo, CardTitle} from '../utils/Salient/UI/Card/Card';
 import Tab, {TabContent, TabItems} from '../utils/Salient/UI/Tab/Tab';
 import Button from '../utils/Salient/UI/Buttons/Button';
+import CodeBlock from '../components/Docs/CodeBlock';
+import Table, {TableRow} from '../utils/Salient/UI/Table/Table';
 
 const TabsDemo = () => {
     const [isSideTab, setTabType] = useState(false);
     const [tabStyle, setTabStyle] = useState("underline");
     return (
-        <Card className="card-border">
+        <React.Fragment>
+            <h2>About</h2>
+            <p>
+                Tabs organise related content into switchable panels, showing one panel at a time.
+                The <code>Tab</code> container wires a <code>TabItems</code> navigation bar to a <code>TabContent</code> panel area.
+                Tabs can be laid out stacked (vertical tab list) or as side tabs.
+            </p>
+            <h3>Import</h3>
+            <CodeBlock code={`import Tab, {TabContent, TabItems} from '../utils/Salient/UI/Tab/Tab';`} language="js" />
+            <h3>Basic Usage</h3>
+            <CodeBlock code={`import Tab, {TabContent, TabItems} from '../utils/Salient/UI/Tab/Tab';
+
+<Tab activeTabIndex={0}>
+    <TabItems tabStyleActive="underline">
+        <li><a>Overview</a></li>
+        <li><a>Details</a></li>
+    </TabItems>
+    <TabContent>
+        <section className="item" data-title="Overview">
+            <p>First tab content.</p>
+        </section>
+        <section className="item" data-title="Details">
+            <p>Second tab content.</p>
+        </section>
+    </TabContent>
+</Tab>`} />
+            <h3>Key Props</h3>
+            <Table columns={['Prop', 'Description']}>
+                <TableRow>
+                    <td data-field="Prop"><code>Tab</code></td>
+                    <td data-field="Description"><code>sideTabs</code> (boolean, default <code>false</code>): render the tab list to the side instead of stacked above; <code>activeTabIndex</code> (number, default <code>0</code>): initially active tab.</td>
+                </TableRow>
+                <TableRow>
+                    <td data-field="Prop"><code>TabItems</code></td>
+                    <td data-field="Description"><code>tabStyleActive</code> ('underline' | 'box', default 'box'): active tab indicator style. Children are <code>&lt;li&gt;&lt;a&gt;Label&lt;/a&gt;&lt;/li&gt;</code> entries.</td>
+                </TableRow>
+                <TableRow>
+                    <td data-field="Prop"><code>TabContent</code></td>
+                    <td data-field="Description">children are <code>&lt;section className="item" data-title="..."&gt;</code> panels; the active panel is toggled automatically by click.</td>
+                </TableRow>
+            </Table>
+
+            <Card className="card-border">
             <CardInfo justify={true}>
                 <CardTitle>Tabs</CardTitle>
                 <div>
@@ -50,7 +94,8 @@ const TabsDemo = () => {
                 </section>
             </TabContent>
             </Tab>
-        </Card>
+            </Card>
+        </React.Fragment>
     )
 }
 

@@ -7,6 +7,8 @@ import axios from 'axios';
 import Card, {CardInfo, CardContent, CardTitle} from '../utils/Salient/UI/Card/Card';
 
 import Timeline, {TimelineEvent} from '../utils/Salient/UI/Timeline/Timeline';
+import CodeBlock from '../components/Docs/CodeBlock';
+import Table, {TableRow} from '../utils/Salient/UI/Table/Table';
 
 const TimelineDemo = () => {
   const [data, setData] = useState([]);
@@ -46,7 +48,46 @@ const TimelineDemo = () => {
   }
 
   return (
-        <Card className="card-border">
+        <React.Fragment>
+          <h2>About</h2>
+          <p>
+            Timeline renders a sequence of events along a vertical or horizontal line, with staggered layouts and built-in pagination controls.
+            Feed it <code>TimelineEvent</code> children, optionally driven by async data (set <code>isLoading</code> while loading).
+          </p>
+          <h3>Import</h3>
+          <CodeBlock code={`import Timeline, {TimelineEvent} from '../utils/Salient/UI/Timeline/Timeline';`} language="js" />
+          <h3>Basic Usage</h3>
+          <CodeBlock code={`import Timeline, {TimelineEvent} from '../utils/Salient/UI/Timeline/Timeline';
+
+<Timeline
+    showCount={4}
+    isHorz={false}
+    isStaggered={true}
+    isLoading={false}
+    centerEvents={true}
+    showControls={true}
+    isTimelineActive={true}
+    activeEventID={2}>
+    <TimelineEvent icon="icon-circle" text="Project kickoff" event={<span>Week 1</span>} />
+    <TimelineEvent icon="icon-square" text="Design review" event={<span>Week 2</span>} />
+</Timeline>`} />
+          <h3>Key Props</h3>
+          <Table columns={['Prop', 'Description']}>
+            <TableRow>
+                <td data-field="Prop"><code>Timeline</code></td>
+                <td data-field="Description"><code>showCount</code> (number): events visible per page; <code>isHorz</code> (boolean, default <code>false</code>): horizontal orientation; <code>isStaggered</code> (boolean, default <code>false</code>): alternate events above/below the line; <code>centerEvents</code> (boolean, default <code>false</code>): center events on the line; <code>isLoading</code> (boolean): shows a loading state until data is ready; <code>showControls</code> (boolean, default <code>true</code>): prev/next pagination buttons.</td>
+            </TableRow>
+            <TableRow>
+                <td data-field="Prop"><code>activeEventID</code></td>
+                <td data-field="Description">with <code>isTimelineActive</code> highlights the event at that index as the active one.</td>
+            </TableRow>
+            <TableRow>
+                <td data-field="Prop"><code>TimelineEvent</code></td>
+                <td data-field="Description"><code>icon</code> (string, default 'icon-circle'): node icon class (e.g. 'icon-square'); <code>text</code> (string): caption under the event; <code>event</code>: thumbnail/body content of the event.</td>
+            </TableRow>
+          </Table>
+
+          <Card className="card-border">
           <CardInfo justify={true}>
               <CardTitle>Timeline</CardTitle>
               <div style={{display: 'inline-block'}}>
@@ -88,7 +129,8 @@ const TimelineDemo = () => {
                 ))}
             </Timeline>
           </CardContent>
-        </Card> 
+          </Card>
+        </React.Fragment>
   )
 }
 

@@ -1,0 +1,113 @@
+.wrapper {
+  margin: 0 0 16px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(90, 124, 240, 0.25);
+  box-shadow: 0 4px 14px -8px rgba(30, 50, 100, 0.35);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 14px;
+  background: #1a2030;
+  border-bottom: 1px solid rgba(120, 150, 255, 0.15);
+}
+
+.lang {
+  font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8fa5cc;
+}
+
+.copyBtn {
+  padding: 3px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(143, 176, 255, 0.35);
+  background: rgba(143, 176, 255, 0.08);
+  color: #aebfdd;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.copyBtn:hover {
+  background: rgba(143, 176, 255, 0.18);
+  color: #dce5f5;
+}
+
+.codeBlock {
+  background: #10141f;
+  padding: 16px 18px;
+  overflow-x: auto;
+  font-size: 0.85rem;
+  line-height: 1.65;
+  margin: 0;
+  tab-size: 4;
+}
+
+.codeBlock code {
+  background: none;
+  padding: 0;
+  color: #d5dde9;
+  font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+  text-shadow: none;
+  white-space: pre;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #5c6a82;
+  font-style: italic;
+}
+
+.token.punctuation {
+  color: #8896ad;
+}
+
+.token.tag,
+.token.selector,
+.token.keyword {
+  color: #7ea6ff;
+}
+
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin {
+  color: #7ee0c2;
+}
+
+.token.attr-value,
+.token.class-name {
+  color: #b98cff;
+}
+
+.token.function,
+.token.property {
+  color: #ffc978;
+}
+
+.token.boolean,
+.token.number,
+.token.constant {
+  color: #ff9d8a;
+}
+
+.token.operator {
+  color: #9db4ff;
+}
+
+.token.deleted {
+  color: #ff8a8a;
+}
+
+.token.inserted {
+  color: #8affc1;
+}

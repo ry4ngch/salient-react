@@ -1,8 +1,10 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import Progress from "../utils/Salient/UI/Progress/Progress";
 import Card, {CardInfo, CardContent, CardTitle} from '../utils/Salient/UI/Card/Card';
 import Banner from '../utils/Salient/UI/Banner/Banner';
 import Button from '../utils/Salient/UI/Buttons/Button';
+import CodeBlock from '../components/Docs/CodeBlock';
+import Table, {TableRow} from '../utils/Salient/UI/Table/Table';
 
 const ProgressDemo = () => {
     const [progressType, setProgressType] = useState('linear');
@@ -34,6 +36,57 @@ const ProgressDemo = () => {
 
     return (
         <React.Fragment>
+            <h2>Progress</h2>
+            <p>
+                The Progress component renders a step-based progress indicator, either as a linear
+                bar with labelled milestones or as a circular ring with a percentage readout. It is
+                useful for multi-step flows (checkout, onboarding, uploads) where the user should
+                see how far along they are.
+            </p>
+            <h3>Import</h3>
+            <CodeBlock code={`import Progress from '../utils/Salient/UI/Progress/Progress';`} />
+            <h3>Basic Usage</h3>
+            <CodeBlock code={`<Progress
+    progressItems={['Cart', 'Checkout', 'Payment', 'Confirm']}
+    currentProgressIndex={1}
+/>`} />
+            <CodeBlock code={`<Progress
+    type="circular"
+    progressItems={['Uploading', 'Processing', 'Done']}
+    currentProgressIndex={1}
+    circularProgressSubheading="Complete"
+/>`} />
+            <h3>Key Props</h3>
+            <Table columns={['Prop', 'Description']}>
+                <TableRow>
+                    <td data-field="Prop"><code>progressItems</code></td>
+                    <td data-field="Description">Array of step labels rendered along the bar (or inside the circular variant).</td>
+                </TableRow>
+                <TableRow>
+                    <td data-field="Prop"><code>currentProgressIndex</code></td>
+                    <td data-field="Description">Zero-based index of the active step; controls how much of the bar/ring is filled.</td>
+                </TableRow>
+                <TableRow>
+                    <td data-field="Prop"><code>type</code></td>
+                    <td data-field="Description"><code>'linear'</code> (default) or <code>'circular'</code>.</td>
+                </TableRow>
+                <TableRow>
+                    <td data-field="Prop"><code>showProgressPoint</code></td>
+                    <td data-field="Description">Renders clickable bullets on each step; pair with <code>onProgressPointClick</code> to jump between steps.</td>
+                </TableRow>
+                <TableRow>
+                    <td data-field="Prop"><code>showProgressStep</code> / <code>showCompleteStepCheckmark</code></td>
+                    <td data-field="Description">Apply step styling and a checkmark on completed steps.</td>
+                </TableRow>
+                <TableRow>
+                    <td data-field="Prop"><code>theme</code></td>
+                    <td data-field="Description">Color theme applied as a class, e.g. <code>'dark'</code>, <code>'sunset'</code>, <code>'forest'</code>.</td>
+                </TableRow>
+                <TableRow>
+                    <td data-field="Prop"><code>circularProgressSubheading</code></td>
+                    <td data-field="Description">Subheading text shown inside the circular variant (default <code>'Complete'</code>).</td>
+                </TableRow>
+            </Table>
             <Banner blockquoteStyle={true} theme="cancel">
                 Progress Bar is currently in development and will be release in the near future.
             </Banner>

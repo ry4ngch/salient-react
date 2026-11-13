@@ -1,13 +1,46 @@
-import React, {Fragment} from 'react';
-import Card, {CardInfo, CardTitle, CardContent} from '../utils/Salient/UI/Card/Card';    
+import React from 'react';
+import Card, {CardContent} from '../utils/Salient/UI/Card/Card';
 import Grid, {GridRow, GridItem} from '../utils/Salient/UI/Grid/Grid';
+import Table, {TableRow} from '../utils/Salient/UI/Table/Table';
+import CodeBlock from '../components/Docs/CodeBlock';
 
 const IconsDemo = () => {
   return (
-    <Card>
-        <CardInfo style={{borderBottom: '1px solid #ddd'}}>
-            <CardTitle>Icons Demo</CardTitle>
-        </CardInfo>
+    <React.Fragment>
+        <h2>Icons</h2>
+            <p>
+                Icons come in two flavors: the built-in Salient icon set, rendered with plain
+                <code>&lt;i&gt;</code> tags and <code>icon icon-*</code> classes, and FontAwesome v7,
+                whose <code>fas</code>, <code>far</code> and <code>fab</code> packs are registered
+                globally so any page can use <code>FontAwesomeIcon</code> without extra setup.
+            </p>
+            <h3>Import</h3>
+            <p>The Salient icon classes need no import — just add the class to an <code>&lt;i&gt;</code> element. For FontAwesome icons:</p>
+            <CodeBlock code={`import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';`} />
+            <h3>Basic Usage</h3>
+            <CodeBlock code={`<i className="icon icon-heart"></i>`} />
+            <CodeBlock code={`<FontAwesomeIcon icon={['fas', 'user']} />`} />
+            <h3>Key Props</h3>
+            <Table columns={['Prop', 'Description']}>
+                <TableRow>
+                    <td data-field="Prop"><code>icon icon-&lt;name&gt;</code></td>
+                    <td data-field="Description">Salient icons use the pattern <code>icon icon-&lt;name&gt;</code>, e.g. <code>icon-search</code>, <code>icon-download</code>, <code>icon-play</code> — see the demos below for the full list.</td>
+                </TableRow>
+                <TableRow>
+                    <td data-field="Prop"><code>size-*</code></td>
+                    <td data-field="Description">Size Salient icons with the <code>size-*</code> classes, e.g. <code>icon-cloud size-6x</code>.</td>
+                </TableRow>
+                <TableRow>
+                    <td data-field="Prop"><code>fas / far / fab</code></td>
+                    <td data-field="Description">FontAwesome packs <code>fas</code>, <code>far</code> and <code>fab</code> are added to the global library in <code>src/utils/FontAwesome/fontAwesome.js</code>, so pass a tuple like <code>icon=&#123;['fas', 'user']&#125;</code>.</td>
+                </TableRow>
+                <TableRow>
+                    <td data-field="Prop"><code>aria-hidden</code></td>
+                    <td data-field="Description">Both approaches can be mixed freely; use <code>aria-hidden</code> or a tooltip for decorative icons in controls.</td>
+                </TableRow>
+            </Table>
+
+        <Card>
         <CardContent>
             <span style={{marginBottom: '20px', display: 'block'}}>This page is a demo for icons. It will showcase different icons and their usage in the application.</span>
             <p style={{fontWeight:'bold', textDecoration: 'underline', marginBottom: '5px'}}>1. Directional Icons</p>
@@ -248,6 +281,7 @@ const IconsDemo = () => {
             </Grid>
         </CardContent>
     </Card>
+    </React.Fragment>
   )
 }
 

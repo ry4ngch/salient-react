@@ -1,5 +1,7 @@
 import React from "react";
 import Banner, {BannerContent, BannerActions, BannerAction} from '../utils/Salient/UI/Banner/Banner';
+import Table, {TableRow} from '../utils/Salient/UI/Table/Table';
+import CodeBlock from '../components/Docs/CodeBlock';
 
 const BannersDemo = () => {
     const someActions = (event) => {
@@ -8,6 +10,59 @@ const BannersDemo = () => {
 
     return (
         <React.Fragment>
+            <h2>Banner</h2>
+            <p>
+                The Banner component displays a prominent notification strip with themed colors,
+                an optional icon, and an optional dismiss button. Body text and actions are
+                composed with the <code>BannerContent</code>, <code>BannerActions</code>, and
+                <code>BannerAction</code> sub-components.
+            </p>
+
+            <h3>Import</h3>
+            <CodeBlock language="js" code={`import Banner, {BannerContent, BannerActions, BannerAction} from '../utils/Salient/UI/Banner/Banner';`} />
+
+            <h3>Basic Usage</h3>
+            <CodeBlock code={`import Banner, {BannerContent, BannerActions, BannerAction} from './Banner';
+
+<Banner theme="warn" icon={<i className="icon icon-warning"></i>}>
+    <BannerContent>Something went wrong while saving your changes.</BannerContent>
+    <BannerActions>
+        <BannerAction onClick={retry}>Retry</BannerAction>
+    </BannerActions>
+</Banner>`} />
+
+            <h3>Key Props</h3>
+            <Table columns={['Prop', 'Description']}>
+                <TableRow>
+                    <td data-field="Prop"><code>theme</code></td>
+                    <td data-field="Description">sets the color variant class <code>banner--&lt;theme&gt;</code>; examples: <code>active</code>, <code>warn</code>, <code>cancel</code>, <code>disabled</code>, <code>emergency</code>, <code>teal</code>, <code>purple</code>. Omit for the default theme.</td>
+                </TableRow>
+                <TableRow>
+                    <td data-field="Prop"><code>icon</code></td>
+                    <td data-field="Description">node rendered in the icon slot at the start of the banner.</td>
+                </TableRow>
+                <TableRow>
+                    <td data-field="Prop"><code>allowBannerDismiss</code></td>
+                    <td data-field="Description">default <code>true</code>; shows the dismiss (×) button.</td>
+                </TableRow>
+                <TableRow>
+                    <td data-field="Prop"><code>onBannerDismiss</code></td>
+                    <td data-field="Description">callback fired when the banner is dismissed, before it is removed from the DOM.</td>
+                </TableRow>
+                <TableRow>
+                    <td data-field="Prop"><code>blockquoteStyle</code></td>
+                    <td data-field="Description">renders the banner in a blockquote-like style.</td>
+                </TableRow>
+                <TableRow>
+                    <td data-field="Prop"><code>BannerContent</code></td>
+                    <td data-field="Description">named sub-component for the banner body text.</td>
+                </TableRow>
+                <TableRow>
+                    <td data-field="Prop"><code>BannerActions / BannerAction</code></td>
+                    <td data-field="Description">named sub-components wrapping the action row and individual clickable actions.</td>
+                </TableRow>
+            </Table>
+
             <Banner theme="disabled" blockquoteStyle={true} onBannerDismiss={() => {alert('Additional Action trigger on closed')}} icon={<i className="icon icon-forbidden"></i>}>
                 <BannerContent>
                     This is a typical banners with blockquote styling and the current one uses the <em style={{fontWeight: 'bold'}}>disabled</em> theme.
