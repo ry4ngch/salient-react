@@ -49,7 +49,7 @@ const TimelineDemo = () => {
 
   return (
         <React.Fragment>
-          <h2>About</h2>
+          <h2>Timeline</h2>
           <p>
             Timeline renders a sequence of events along a vertical or horizontal line, with staggered layouts and built-in pagination controls.
             Feed it <code>TimelineEvent</code> children, optionally driven by async data (set <code>isLoading</code> while loading).

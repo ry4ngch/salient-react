@@ -9,8 +9,8 @@ import Table, {TableRow} from '../utils/Salient/UI/Table/Table';
 const TreeviewDemo = () => {
   return (
 <React.Fragment>
-        <div style={{padding: '10px'}}>
-          <h2>About</h2>
+        <div>
+          <h2>Treeview</h2>
           <p>
             Treeview displays hierarchical data as an expandable list.
             <code>TreeItem</code> branches toggle open/closed on click and can be nested to any depth, with plain <code>lt;li&gt;</code> elements as leaves.

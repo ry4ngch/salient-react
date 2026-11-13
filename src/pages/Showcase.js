@@ -9,7 +9,7 @@ import Progress from '../utils/Salient/UI/Progress/Progress';
 import Modal from '../utils/Salient/UI/Modal/Modal';
 import Banner, {BannerContent} from '../utils/Salient/UI/Banner/Banner';
 
-import styles from './Showcase.module.css';
+import styles from '../styles/pages/Showcase.module.css';
 
 const FEATURES = [
 	{

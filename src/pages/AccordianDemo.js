@@ -17,7 +17,7 @@ const AccordianDemo = () => {
     };
     return (
         <React.Fragment>
-            <h2>About</h2>
+            <h2>Accordian</h2>
             <p>
                 Accordian renders collapsible content cards, useful for FAQs and compact sections.
                 The <code>Accordian</code> container manages the open/close state of its <code>AccordianItem</code> children.

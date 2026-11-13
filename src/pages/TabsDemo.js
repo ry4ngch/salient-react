@@ -12,7 +12,7 @@ const TabsDemo = () => {
     const [tabStyle, setTabStyle] = useState("underline");
     return (
         <React.Fragment>
-            <h2>About</h2>
+            <h2>Tabs</h2>
             <p>
                 Tabs organise related content into switchable panels, showing one panel at a time.
                 The <code>Tab</code> container wires a <code>TabItems</code> navigation bar to a <code>TabContent</code> panel area.
