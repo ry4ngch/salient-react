@@ -21,6 +21,7 @@ const NavigateContext = React.createContext({
         {name: 'Grid', link: '/grid'},
         {name: 'Toolbar', link: '/toolbar'},
         {name: 'Upload', link: '/upload'},
+        {name: 'List', link: '/list'},
         {name: 'Avatar', link: '/avatar'},
         {name: 'Icons', link: '/icons'},
     ],

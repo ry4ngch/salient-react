@@ -52,7 +52,7 @@ export default function AvatarDemo() {
                 </TableRow>
             </Table>
 
-            <Card className='card-border'>
+            <Card className='card-border mt-2'>
                 <CardContent>
                     Avatar component is used to display an image or a font awesome icon. It can be customized with different sizes and shapes.
                     <Grid style={{marginTop:'10px'}}>

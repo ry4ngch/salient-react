@@ -69,7 +69,7 @@ const Example = () => {
                 </TableRow>
             </Table>
 
-            <Card className='card-flat'>
+            <Card className='card-flat mt-2'>
             <CardInfo>
                 <CardTitle>Modal (Click to View)</CardTitle>
             </CardInfo>

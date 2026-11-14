@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import Progress from "../utils/Salient/UI/Progress/Progress";
 import Card, {CardInfo, CardContent, CardTitle} from '../utils/Salient/UI/Card/Card';
-import Banner from '../utils/Salient/UI/Banner/Banner';
 import Button from '../utils/Salient/UI/Buttons/Button';
 import CodeBlock from '../components/Docs/CodeBlock';
 import Table, {TableRow} from '../utils/Salient/UI/Table/Table';
@@ -87,11 +86,7 @@ const ProgressDemo = () => {
                     <td data-field="Description">Subheading text shown inside the circular variant (default <code>'Complete'</code>).</td>
                 </TableRow>
             </Table>
-            <Banner blockquoteStyle={true} theme="cancel">
-                Progress Bar is currently in development and will be release in the near future.
-            </Banner>
-            <br/>
-            <Card className='card-border'>
+            <Card className='card-border mt-2'>
                 <CardInfo justify={true}>
                     <CardTitle>Interactive Progress Bar</CardTitle>
                     <div style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-end'}}>

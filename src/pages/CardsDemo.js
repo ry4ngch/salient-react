@@ -52,7 +52,7 @@ const CardsDemo = () => {
           </TableRow>
         </Table>
 
-        <Card className="card-border">
+        <Card className="card-border mt-2">
           <CardContent>
             <Card>
               <CardInfo>

@@ -43,7 +43,7 @@ const ToolbarDemo = () => {
                         <td data-field="Description">The current CSS applies vertical toolbar styling when this prop is passed to <code>Toolbar</code>; omit it for the default horizontal bar.</td>
                     </TableRow>
                 </Table>
-            <Grid>
+            <Grid className="mt-2">
                 <GridRow>
                     <GridItem>
                         <Toolbar layoutHorz={false}>

@@ -13,7 +13,7 @@ const TreeviewDemo = () => {
           <h2>Treeview</h2>
           <p>
             Treeview displays hierarchical data as an expandable list.
-            <code>TreeItem</code> branches toggle open/closed on click and can be nested to any depth, with plain <code>lt;li&gt;</code> elements as leaves.
+            <code>TreeItem</code> branches toggle open/closed on click and can be nested to any depth, with plain <code>&lt;li&gt;</code> elements as leaves.
           </p>
           <h3>Import</h3>
           <CodeBlock code={`import Treeview, {TreeItem} from '../utils/Salient/UI/Treeview/Treeview';`} language="js" />
@@ -50,7 +50,7 @@ const TreeviewDemo = () => {
           </Table>
         </div>
 
-        <Card className="card-border bg-dark" style={{marginTop: '10px'}}>
+        <Card className="card-border bg-dark mt-2">
           <CardInfo>
             <CardTitle>Treeview - Dark Background</CardTitle>
           </CardInfo>

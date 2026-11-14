@@ -86,7 +86,7 @@ const ChartDemo = () => {
                 </TableRow>
             </Table>
 
-            <Card className="card-border">
+            <Card className="card-border mt-2">
                 <CardInfo justify={true}>
                     <CardTitle>Chart</CardTitle>
                 <div style={{display: 'inline-block'}}>

@@ -41,26 +41,26 @@ const GridDemo = () => {
                     <td data-field="Description">Nest any number of <code>GridRow</code> children inside <code>Grid</code>; items auto-size per your grid CSS.</td>
                 </TableRow>
             </Table>
-            <Grid className='grid-demo'>
-            <GridRow>
-                <GridItem>Row 1 - Item 1</GridItem>
-                <GridItem>Row 1 - Item 2</GridItem>
-                <GridItem>Row 1 - Item 3</GridItem>
-            </GridRow>
-            <GridRow>
-                <GridItem>Row 2 - Item 1</GridItem>
-                <GridItem>Row 2 - Item 2</GridItem>
-                <GridItem>Row 2 - Item 3</GridItem>
-                <GridItem>Row 2 - Item 4</GridItem>
-            </GridRow>
-            <GridRow>
-                <GridItem>Row 3 - Item 1</GridItem>
-                <GridItem>Row 3 - Item 2</GridItem>
-                <GridItem>Row 3 - Item 3</GridItem>
-                <GridItem>Row 3 - Item 4</GridItem>
-                <GridItem>Row 3 - Item 5</GridItem>
-            </GridRow>
-        </Grid>
+            <Grid className='grid-demo mt-2'>
+                <GridRow>
+                    <GridItem>Row 1 - Item 1</GridItem>
+                    <GridItem>Row 1 - Item 2</GridItem>
+                    <GridItem>Row 1 - Item 3</GridItem>
+                </GridRow>
+                <GridRow>
+                    <GridItem>Row 2 - Item 1</GridItem>
+                    <GridItem>Row 2 - Item 2</GridItem>
+                    <GridItem>Row 2 - Item 3</GridItem>
+                    <GridItem>Row 2 - Item 4</GridItem>
+                </GridRow>
+                <GridRow>
+                    <GridItem>Row 3 - Item 1</GridItem>
+                    <GridItem>Row 3 - Item 2</GridItem>
+                    <GridItem>Row 3 - Item 3</GridItem>
+                    <GridItem>Row 3 - Item 4</GridItem>
+                    <GridItem>Row 3 - Item 5</GridItem>
+                </GridRow>
+            </Grid>
         </React.Fragment>
     )
 }

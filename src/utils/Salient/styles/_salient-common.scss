@@ -1,0 +1,51 @@
+@mixin generate-padding-sizes($paddings...) {
+    @each $padding in $paddings {
+        .p-#{$padding} {
+            padding: calc(#{$padding}*1em);
+        }
+
+        .px-#{$padding} {
+            padding: 0 calc(#{$padding}*1em);
+        }
+
+        .py-#{$padding} {
+            padding: calc(#{$padding}*1em) 0;
+        }
+
+        .pt-#{$padding} {
+            padding-top: calc(#{$padding}*1em);
+        }
+
+        .pb-#{$padding} {
+            padding-bottom: calc(#{$padding}*1em);
+        }
+    }
+}
+
+@include generate-padding-sizes(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+@mixin generate-margin-sizes($margins...) {
+    @each $margin in $margins {
+        .m-#{$margin} {
+            margin: calc(#{$margin}*1em);
+        }
+
+        .mx-#{$margin} {
+            margin: 0 calc(#{$margin}*1em);
+        }
+
+        .my-#{$margin} {
+            margin: calc(#{$margin}*1em) 0;
+        }
+
+        .mt-#{$margin} {
+            margin-top: calc(#{$margin}*1em);
+        }
+
+        .mb-#{$margin} {
+            margin-bottom: calc(#{$margin}*1em);
+        }
+    }
+}
+
+@include generate-margin-sizes(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);

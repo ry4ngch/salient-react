@@ -45,7 +45,7 @@ const BadgesDemo = () => {
                 </TableRow>
             </Table>
 
-            <Card className="card-border">
+            <Card className="card-border mt-2">
             <CardInfo>
                 <CardTitle>Badge</CardTitle>
             </CardInfo>

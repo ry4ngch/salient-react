@@ -125,7 +125,7 @@ const TablesDemo = () => {
         </TableRow>
       </Table>
 
-      <Card className="card-border">
+      <Card className="card-border mt-2">
         <CardInfo>
           <CardTitle>Dynamic Table with Pagination</CardTitle>
           <p>using pagination in custom component</p>

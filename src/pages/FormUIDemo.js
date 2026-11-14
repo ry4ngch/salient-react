@@ -81,7 +81,7 @@ import RangeSlider from '../utils/Salient/UI/Form/RangeSlider';`} />
                 </TableRow>
             </Table>
 
-            <Card className="card-border">
+            <Card className="card-border mt-2">
                 <CardInfo>
                     <CardTitle>Form Controls - Dropdown</CardTitle>
                 </CardInfo>

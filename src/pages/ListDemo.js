@@ -9,7 +9,7 @@ import Table, {TableRow} from '../utils/Salient/UI/Table/Table';
 const ListDemo = () => {
   return (
     <React.Fragment>
-        <h2>About</h2>
+        <h2>List</h2>
         <p>
           List renders a vertical group of items, like a simple menu or table of contents.
           <code>ListItem</code> marks each row and can highlight on hover for interactive lists.

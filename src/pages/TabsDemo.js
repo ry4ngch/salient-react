@@ -53,7 +53,7 @@ const TabsDemo = () => {
                 </TableRow>
             </Table>
 
-            <Card className="card-border">
+            <Card className="card-border mt-2">
             <CardInfo justify={true}>
                 <CardTitle>Tabs</CardTitle>
                 <div>

@@ -32,7 +32,7 @@ const BannersDemo = () => {
 </Banner>`} />
 
             <h3>Key Props</h3>
-            <Table columns={['Prop', 'Description']}>
+            <Table columns={['Prop', 'Description']} className="mb-2">
                 <TableRow>
                     <td data-field="Prop"><code>theme</code></td>
                     <td data-field="Description">sets the color variant class <code>banner--&lt;theme&gt;</code>; examples: <code>active</code>, <code>warn</code>, <code>cancel</code>, <code>disabled</code>, <code>emergency</code>, <code>teal</code>, <code>purple</code>. Omit for the default theme.</td>

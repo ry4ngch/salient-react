@@ -55,7 +55,7 @@ const ButtonsDemo = () => {
                 </TableRow>
             </Table>
 
-            <Card className="bg-dark card-flat">
+            <Card className="bg-dark card-flat mt-2">
                 <CardInfo>
                     <CardTitle>Block Button</CardTitle>
                 </CardInfo>

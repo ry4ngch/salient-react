@@ -60,7 +60,7 @@ const SideBarDemo = () => {
                 </TableRow>
             </Table>
 
-            <Sidebar>
+            <Sidebar className="mt-2">
             <SideBarItem title="Menu Item 1"/>
             <SideBarItem title="Menu Item 2" iconPrefix="icon icon-file">
                 <li><a>Sub Item 1</a></li>

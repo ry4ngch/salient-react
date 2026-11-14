@@ -55,7 +55,7 @@ const BreadcrumbsDemo = () => {
                 </TableRow>
             </Table>
 
-            <Card className="card-border">
+            <Card className="card-border mt-2">
             <CardInfo>
                 <CardTitle>Breadcrumbs With Seperator</CardTitle>
             </CardInfo>
