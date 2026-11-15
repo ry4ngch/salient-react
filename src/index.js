@@ -18,7 +18,7 @@ export { default as Dropdown } from './utils/Salient/UI/Form/Dropdown';
 export { default as FormAffix } from './utils/Salient/UI/Form/FormAffix';
 export { default as NumericField } from './utils/Salient/UI/Form/NumericField';
 export { default as RangeSlider } from './utils/Salient/UI/Form/RangeSlider';
-export { default as TextFieldV2 } from './utils/Salient/UI/Form/TextFieldV2';
+export { default as TextField } from './utils/Salient/UI/Form/TextField';
 export { default as ChoiceField } from './utils/Salient/UI/Form/ChoiceField';
 export { default as DateField } from './utils/Salient/UI/Form/DateField';
 export { default as ColorField } from './utils/Salient/UI/Form/ColorField';
