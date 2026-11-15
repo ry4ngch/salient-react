@@ -98,10 +98,6 @@ table.sl-table {
   display: none;
 }
 
-.row-checkbox {
-  text-align: center;
-}
-
 .row-selected {
   background: #e6eef9;
 }
@@ -211,6 +207,10 @@ table.sl-table {
   color: #333;
   white-space: nowrap;
   border-bottom: 1px solid #e5e5e5;
+
+  & label > span {
+    margin-left: 0.5em;
+  }
 }
 
 /** Pagination **/
@@ -518,6 +518,10 @@ table.gridView td {
 @media screen and (min-width: 768px) {
   table.sl-table thead tr th {
     text-align: left;
+  }
+
+  .row-checkbox {
+    text-align: center !important;
   }
 
   .pagination-detail > label:before {

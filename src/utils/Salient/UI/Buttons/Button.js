@@ -11,7 +11,7 @@ const Button = (props) => {
         'inverse': props.inverseColor
     })
 
-    const switchStyle = classNames('switch', {
+    const switchStyle = classNames('sl-checkbox switch', {
         'slider-dark': props.mode === 'dark',
         'slider-forest': props.mode === 'forest',
         'slider-sunset': props.mode === 'sunset',
@@ -19,7 +19,7 @@ const Button = (props) => {
         'slider-light': props.mode === 'light'
     })
 
-    const checkboxStyle = classNames('', {
+    const checkboxStyle = classNames('sl-checkbox', {
         'dark-cb': props.mode === 'dark',
         'light-cb': props.mode === 'light',
         'forest-cb': props.mode === 'forest',

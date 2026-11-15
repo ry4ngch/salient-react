@@ -165,11 +165,12 @@ const Table = (props) => {
                   <li key={index}>
                     <label>
                       <input
+                        className="sl-checkbox"
                         type="checkbox"
                         checked={!hiddenColumns[index]}
                         onChange={() => toggleColumnVisibility(index)}
                       />
-                      {field}
+                      <span>{field}</span>
                     </label>
                   </li>
                 ))}
@@ -186,7 +187,7 @@ const Table = (props) => {
         <thead>
           <tr>
             {props.draggable && <th className="drag-handle-column"></th>}
-            {props.showRowSelector && <th className="row-checkbox"><input type="checkbox" onChange={selectAllRows} /></th>}
+            {props.showRowSelector && <th className="row-checkbox"><input className="sl-checkbox" type="checkbox" onChange={selectAllRows} /></th>}
             {props.columns.map((colName, index) => (
               <th key={index} className={hiddenColumns[index] ? "hide-table-col" : ""}>
                 {colName}
@@ -370,7 +371,7 @@ const TableRow = ({
       {/* Checkbox column */}
       {showRowSelector && (
         <td className="row-checkbox">
-          <input type="checkbox" checked={selectRow} onChange={() => updateRowCheckState(rowId)} />
+          <input className="sl-checkbox" type="checkbox" checked={selectRow} onChange={() => updateRowCheckState(rowId)} />
         </td>
       )}
 
