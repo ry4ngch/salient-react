@@ -24,6 +24,7 @@ const NavigateContext = React.createContext({
         {name: 'List', link: '/list'},
         {name: 'Avatar', link: '/avatar'},
         {name: 'Icons', link: '/icons'},
+        {name: 'Drawer', link: '/drawer'},
     ],
 })
 

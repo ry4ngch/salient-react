@@ -1,0 +1,117 @@
+.drawer {
+  border: 3px solid transparent;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  position: fixed;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  overflow: auto;
+  z-index: 999;
+
+    .drawer-content {
+        background: rgba(255, 255, 255, 0.96);
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+        padding: 1rem;
+        width: min(100%, 40ch);
+        height: 100%;
+        position: absolute;
+    }
+
+    .drawer-right {
+        right: 0;
+
+        &.drawer-content {
+            transform: translateX(100%);
+        }
+    }
+
+    .drawer-left {
+        left: 0;
+
+        &.drawer-content {
+            transform: translateX(-100%);
+        }
+    }
+
+    .drawer-header {
+        position: relative;
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        * {
+            margin: 0;
+        }
+    }
+
+    .drawer-close {
+        width: 20px;
+        cursor: pointer;
+        display: inline-block;
+        border: none;
+        background: transparent;
+        vertical-align: middle;
+        text-decoration: none;
+        position: absolute;
+        right: 10px;
+        z-index: 2;
+
+        &::after, &::before {
+            border-radius: 3px;
+            content: "";
+            display: block;
+            height: 2px;
+            margin: 8px 0;
+            transition: all 0.2s ease-in-out;
+            background: #333;
+            opacity: .4;
+        }
+
+        &:hover::after,
+        &:hover::before{
+            opacity: 1;
+        }
+
+        &::before {
+            transform: translateY(5px) rotate(135deg);
+        }
+
+        &::after {
+            transform: translateY(-5px) rotate(-135deg);
+        }
+    }
+
+    &.drawer-active .drawer-content {
+    animation: slideIn 0.2s ease-in-out forwards;
+    }
+
+    &.drawer-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 999;
+        background: rgba(0, 0, 0, 0.6);
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+  }
+}
+
+@keyframes darken {
+  to {
+    background: rgba(0, 0, 0, 0.5);
+  }
+}
