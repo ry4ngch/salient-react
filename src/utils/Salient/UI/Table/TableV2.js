@@ -1,4 +1,11 @@
-import React, { useRef, useEffect, Fragment, useState, useMemo, useCallback } from "react";
+import React, {
+  useRef,
+  useEffect,
+  Fragment,
+  useState,
+  useMemo,
+  useCallback,
+} from "react";
 import classNames from "classnames";
 import { tableSorter } from "../../helpers/Sort";
 
@@ -17,40 +24,59 @@ const Table = (props) => {
   const [activeDragRow, setActiveDragRow] = useState(null);
 
   // Row selection
-  const initialRowsCheckBoxState = useMemo(() => Object.fromEntries((props.data || []).map((_, index) => [index, false])), [props.data]);
-  const initialRowsCheckBoxStateFallback = useMemo(() => Object.fromEntries(rows.map((_, index) => [index, false])), [rows]);
-  const [selectRows, setSelectRows] = Object.keys(initialRowsCheckBoxState).length > 0
-    ? useState(initialRowsCheckBoxState)
-    : useState(initialRowsCheckBoxStateFallback);
+  const initialRowsCheckBoxState = useMemo(
+    () =>
+      Object.fromEntries((props.data || []).map((_, index) => [index, false])),
+    [props.data],
+  );
+  const initialRowsCheckBoxStateFallback = useMemo(
+    () => Object.fromEntries(rows.map((_, index) => [index, false])),
+    [rows],
+  );
+  const [selectRows, setSelectRows] = useState(
+    Object.keys(initialRowsCheckBoxState).length > 0
+      ? initialRowsCheckBoxState
+      : initialRowsCheckBoxStateFallback,
+  );
 
   // Data store
-  const [dataStore, setDataStore] = props.data && props.data.length > 0
-    ? useState(props.data)
-    : useState(React.Children.toArray(rows));
+  const [dataStore, setDataStore] = useState(
+    props.data && props.data.length > 0
+      ? props.data
+      : React.Children.toArray(rows),
+  );
 
   // Sorting
-  const [currentColSortState, setCurrentColSortState] = useState({ colId: null, order: null });
+  const [currentColSortState, setCurrentColSortState] = useState({
+    colId: null,
+    order: null,
+  });
 
   // Pagination
   const isPaginatedTable = props.itemsPerPage && props.currentPage;
 
   useEffect(() => {
     setDropdownList(props.columns || []);
-    setHiddenColumns(Object.fromEntries((props.columns || []).map((_, index) => [index, false])));
+    setHiddenColumns(
+      Object.fromEntries(
+        (props.columns || []).map((_, index) => [index, false]),
+      ),
+    );
   }, [props.columns]);
 
   useEffect(() => {
     setRows(React.Children.toArray(props.children));
   }, [props.children]);
 
-  const toggleColumnVisibility = (index) => setHiddenColumns(prev => ({ ...prev, [index]: !prev[index] }));
+  const toggleColumnVisibility = (index) =>
+    setHiddenColumns((prev) => ({ ...prev, [index]: !prev[index] }));
 
-    const tableClasses = classNames("sl-table", {
-        "table-draggable": props.draggable,
-        "table-bordered": props.bordered,
-        "table-bordered__inner": props.tableInnerBordered,
-        "table-striped": props.striped
-    });
+  const tableClasses = classNames("sl-table", {
+    "table-draggable": props.draggable,
+    "table-bordered": props.bordered,
+    "table-bordered__inner": props.tableInnerBordered,
+    "table-striped": props.striped,
+  });
 
   /*** Drag functions ***/
   const handleDragStart = (index) => {
@@ -103,15 +129,23 @@ const Table = (props) => {
   };
 
   /*** Row selection ***/
-  const selectAllRows = (e) => setSelectRows(prev => Object.fromEntries(Object.entries(prev).map(([key]) => [key, e.target.checked])));
-  const updateRowCheckState = (index) => setSelectRows(prev => ({ ...prev, [index]: !prev[index] }));
+  const selectAllRows = (e) =>
+    setSelectRows((prev) =>
+      Object.fromEntries(
+        Object.entries(prev).map(([key]) => [key, e.target.checked]),
+      ),
+    );
+  const updateRowCheckState = (index) =>
+    setSelectRows((prev) => ({ ...prev, [index]: !prev[index] }));
 
   const handleCheckedRows = () => {
     if (!props.onRetrievedSelected) return;
     let selectedRowsData;
-    const selectedRows = Object.fromEntries(Object.entries(selectRows).filter(([_, v]) => v));
+    const selectedRows = Object.fromEntries(
+      Object.entries(selectRows).filter(([, v]) => v),
+    );
 
-    if (dataStore.some(obj => obj.hasOwnProperty("props"))) {
+    if (dataStore.some((obj) => obj.hasOwnProperty("props"))) {
       // Static table
       selectedRowsData = Object.entries(selectedRows).reduce((acc, [key]) => {
         const row = dataStore[key];
@@ -125,14 +159,18 @@ const Table = (props) => {
       }, {});
     } else {
       // Dynamic table
-      selectedRowsData = Object.fromEntries(Object.entries(dataStore).filter(([key]) => selectedRows.hasOwnProperty(key)));
+      selectedRowsData = Object.fromEntries(
+        Object.entries(dataStore).filter(([key]) =>
+          selectedRows.hasOwnProperty(key),
+        ),
+      );
     }
     props.onRetrievedSelected(selectedRowsData);
   };
 
   /*** Sorting ***/
   const changeSortOrder = (index) => {
-    setCurrentColSortState(prev => {
+    setCurrentColSortState((prev) => {
       const newOrder = prev.order === "desc" ? "asc" : "desc";
       tableSorter(tBodyRef.current, index, newOrder === "asc");
       return { colId: index, order: newOrder };
@@ -149,14 +187,22 @@ const Table = (props) => {
         setDropdownState(false);
       }
     });
-  }, [dropdownState]);
+  }, []);
 
   return (
     <Fragment>
       <div className="btn-group">
         {props.showColToggleUI && (
-          <div className={["dropdown-btn", dropdownState ? "dropdown-open" : ""].join(" ").trim()} onBlur={handleBlur}>
-            <button className="btn" onClick={() => setDropdownState(!dropdownState)}>
+          <div
+            className={["dropdown-btn", dropdownState ? "dropdown-open" : ""]
+              .join(" ")
+              .trim()}
+            onBlur={handleBlur}
+          >
+            <button
+              className="btn"
+              onClick={() => setDropdownState(!dropdownState)}
+            >
               <span className="icon icon-filter" />
             </button>
             {dropdownState && (
@@ -179,28 +225,49 @@ const Table = (props) => {
           </div>
         )}
         {Object.values(selectRows).includes(true) && (
-          <button className="btn" onClick={handleCheckedRows}>{props.retrieveRowsBtnTitle}</button>
+          <button className="btn" onClick={handleCheckedRows}>
+            {props.retrieveRowsBtnTitle}
+          </button>
         )}
       </div>
 
-      <table className={[tableClasses, props.className || ""].join(" ").trim()} ref={props.ref}>
+      <table
+        className={[tableClasses, props.className || ""].join(" ").trim()}
+        ref={props.ref}
+      >
         <thead>
           <tr>
             {props.draggable && <th className="drag-handle-column"></th>}
-            {props.showRowSelector && <th className="row-checkbox"><input className="sl-checkbox" type="checkbox" onChange={selectAllRows} /></th>}
+            {props.showRowSelector && (
+              <th className="row-checkbox">
+                <input
+                  className="sl-checkbox"
+                  type="checkbox"
+                  onChange={selectAllRows}
+                />
+              </th>
+            )}
             {props.columns.map((colName, index) => (
-              <th key={index} className={hiddenColumns[index] ? "hide-table-col" : ""}>
+              <th
+                key={index}
+                className={hiddenColumns[index] ? "hide-table-col" : ""}
+              >
                 {colName}
                 {props.sortable && (
                   <span
                     className={`icon table-sort-icon ${
-                      currentColSortState.colId !== (props.showRowSelector ? index + 2 : index + 1)
+                      currentColSortState.colId !==
+                      (props.showRowSelector ? index + 2 : index + 1)
                         ? "icon-sort-by-fill"
                         : currentColSortState.order === "asc"
                           ? "icon-top-fill"
                           : "icon-bottom-fill"
                     }`}
-                    onClick={() => changeSortOrder(props.showRowSelector ? index + 2 : index + 1)}
+                    onClick={() =>
+                      changeSortOrder(
+                        props.showRowSelector ? index + 2 : index + 1,
+                      )
+                    }
                   ></span>
                 )}
               </th>
@@ -217,9 +284,9 @@ const Table = (props) => {
               ? React.cloneElement(child, {
                   ...child.props,
                   hiddenColumns,
-                  draggable: props.draggable,           // allow handle to be shown
-                  activeDragRow,                        // new state
-                  setActiveDragRow,                      // pass setter to row
+                  draggable: props.draggable, // allow handle to be shown
+                  activeDragRow, // new state
+                  setActiveDragRow, // pass setter to row
                   showRowSelector: props.showRowSelector,
                   selectRow: selectRows[rowIndex],
                   rowId: rowIndex,
@@ -228,7 +295,7 @@ const Table = (props) => {
                   onDragOver: (e) => handleDragOver(index, e),
                   onDrop: () => handleDrop(index),
                   onDragLeave: handleDragLeave,
-                  isHighlighted: highlightedRow === index
+                  isHighlighted: highlightedRow === index,
                 })
               : child;
           })}
@@ -249,7 +316,7 @@ Table.defaultProps = {
   sortable: false,
   tableInnerBordered: false,
   bordered: true,
-  striped: false
+  striped: false,
 };
 
 /**
@@ -274,12 +341,11 @@ const TableRow = ({
   onDragOver,
   onDragLeave,
   onDrop,
-  draggable,       // row reordering enabled
+  draggable, // row reordering enabled
   activeDragRow,
   setActiveDragRow,
-  dragIconClass='icon icon-drag'
+  dragIconClass = "icon icon-drag",
 }) => {
-
   const rowRef = useRef(null);
 
   const handleMouseDown = () => {
@@ -289,17 +355,17 @@ const TableRow = ({
 
   const handleDragStartInternal = (e) => {
     onDragStart && onDragStart();
-  
+
     const original = rowRef.current;
     if (!original) return;
-  
+
     // Clone the row DOM
     const clonedRow = original.cloneNode(true);
-  
+
     // Create wrapper DIV that will be used as drag image
     const wrapper = document.createElement("div");
     wrapper.className = "sl-drag-ghost"; // apply ghost CSS to wrapper
-  
+
     // Make cloned row renderable outside table:
     // Force display styles so it looks like a table row inside the wrapper
     clonedRow.style.display = "table";
@@ -308,34 +374,34 @@ const TableRow = ({
       td.style.display = "table-cell";
       td.style.boxSizing = "border-box";
     });
-  
+
     // Optionally restrict width so ghost has same width as original row
     wrapper.style.width = `${original.offsetWidth}px`;
-  
+
     // Append cloned row into wrapper, and put wrapper into body
     wrapper.appendChild(clonedRow);
     document.body.appendChild(wrapper);
-  
+
     // Use the wrapper as drag image (must be in DOM)
     // offsetX/offsetY: adjust to move ghost under pointer if needed
     e.dataTransfer.setDragImage(wrapper, 0, 0);
-  
+
     // store for cleanup
     window.__slGhostRow = wrapper;
-  
+
     // add lift class to real row
     original.classList.add("sl-row-dragging");
   };
-  
+
   const handleDragEndInternal = () => {
     setActiveDragRow(null);
-  
+
     // cleanup ghost
     if (window.__slGhostRow) {
       window.__slGhostRow.remove();
       window.__slGhostRow = null;
     }
-  
+
     // remove lift class on original row
     if (rowRef.current) rowRef.current.classList.remove("sl-row-dragging");
   };
@@ -343,7 +409,7 @@ const TableRow = ({
   return (
     <tr
       ref={rowRef}
-      draggable={activeDragRow === rowId}   // Only draggable when activated
+      draggable={activeDragRow === rowId} // Only draggable when activated
       onDragStart={handleDragStartInternal}
       onDragEnd={handleDragEndInternal}
       onDragOver={onDragOver}
@@ -352,8 +418,10 @@ const TableRow = ({
       className={[
         className || "",
         isHighlighted ? "row-insert-highlight" : "",
-        selectRow ? "row-selected" : ""
-      ].join(" ").trim()}
+        selectRow ? "row-selected" : "",
+      ]
+        .join(" ")
+        .trim()}
     >
       {/* Drag handle column FIRST */}
       {draggable && (
@@ -363,26 +431,29 @@ const TableRow = ({
             draggable={true}
             onMouseDown={handleMouseDown}
             onDragStart={handleDragStartInternal}
-          >
-          </span>
+          ></span>
         </td>
       )}
 
       {/* Checkbox column */}
       {showRowSelector && (
         <td className="row-checkbox">
-          <input className="sl-checkbox" type="checkbox" checked={selectRow} onChange={() => updateRowCheckState(rowId)} />
+          <input
+            className="sl-checkbox"
+            type="checkbox"
+            checked={selectRow}
+            onChange={() => updateRowCheckState(rowId)}
+          />
         </td>
       )}
 
       {/* Data columns */}
       {React.Children.map(children, (cell, index) =>
-        hiddenColumns?.[index] ? null : cell
+        hiddenColumns?.[index] ? null : cell,
       )}
     </tr>
   );
 };
-
 
 export { TableRow };
 export default Table;

@@ -33,7 +33,7 @@ describe("Table component", () => {
           <td data-field="Contact">Francisco</td>
           <td data-field="Country">Mexico</td>
         </TableRow>
-      </Table>
+      </Table>,
     );
 
   test("renders static table rows", () => {
@@ -56,7 +56,7 @@ describe("Table component", () => {
           <td data-field="Contact">Test</td>
           <td data-field="Country">Nowhere</td>
         </TableRow>
-      </Table>
+      </Table>,
     );
     const dragHandles = document.querySelectorAll(".drag-handle");
     expect(dragHandles.length).toBe(0);
@@ -90,7 +90,11 @@ describe("Table component", () => {
 
   test("supports static table with pagination children pattern", () => {
     render(
-      <Table columns={["Company", "Contact", "Country"]} itemsPerPage={1} currentPage={1}>
+      <Table
+        columns={["Company", "Contact", "Country"]}
+        itemsPerPage={1}
+        currentPage={1}
+      >
         <TableRow>
           <td data-field="Company">PageRow1</td>
           <td data-field="Contact">A</td>
@@ -101,20 +105,19 @@ describe("Table component", () => {
           <td data-field="Contact">B</td>
           <td data-field="Country">Y</td>
         </TableRow>
-      </Table>
+      </Table>,
     );
-  
+
     const rows = document.querySelectorAll("tbody tr");
-  
+
     // Page 1 should show first row
     expect(rows[0]).toBeInTheDocument();
     expect(rows[0]).toHaveTextContent("PageRow1");
-  
+
     // Page 1 should include PageRow2 in DOM but you can ignore its content for pagination logic
     expect(rows[1]).toBeInTheDocument();
     expect(rows[1]).toHaveTextContent("PageRow2"); // still in DOM
   });
-  
 
   test("column visibility toggles when column checkbox is changed", () => {
     render(
@@ -128,7 +131,7 @@ describe("Table component", () => {
           <td data-field="Contact">Maria</td>
           <td data-field="Country">Germany</td>
         </TableRow>
-      </Table>
+      </Table>,
     );
 
     // Open column toggle dropdown

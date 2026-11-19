@@ -1,33 +1,47 @@
 import React from "react";
-import { Table, TableRow } from '@ry4ngch/salient-react';
-import { withPagination } from '@ry4ngch/salient-react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { Table, TableRow } from "@ry4ngch/salient-react";
+import { withPagination } from "@ry4ngch/salient-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const SampleDynamicTable = (props) => {
-    const onDragUpdate = (returnData) => {
-        //console.log(returnData);
-    }
+  const onDragUpdate = () => {};
 
-    const handleRetrievedRows = (returnData) => {
-        console.log(returnData);
-    }
+  const handleRetrievedRows = () => {};
 
-    return (
-        <Table draggable={true} showColToggleUI={true} columns={["Type", "Name", "Description", "Tags", "Last Viewed", "Expiration"]} onDragUpdate={onDragUpdate} data={props.data} showRowSelector={true} onRetrievedSelected={handleRetrievedRows} retrieveRowsBtnTitle="Get Row" {...props}>
-            {props.items.map((row, index) => (
-                <TableRow key={index}>
-                    <td data-field="Type"><FontAwesomeIcon icon={"file-"+row.Type}></FontAwesomeIcon></td>
-                    <td data-field="Name">{row.Name} app</td>
-                    <td data-field="Description">{row.Description}</td>
-                    <td data-field="Tags">{row.Tags}</td>
-                    <td data-field="Last Viewed">{row.LastViewed}</td>
-                    <td data-field="Expiration">{row.Expiration}</td>
-                </TableRow>
-            ))}
-        </Table>
-    )
-}
+  return (
+    <Table
+      draggable={true}
+      showColToggleUI={true}
+      columns={[
+        "Type",
+        "Name",
+        "Description",
+        "Tags",
+        "Last Viewed",
+        "Expiration",
+      ]}
+      onDragUpdate={onDragUpdate}
+      data={props.data}
+      showRowSelector={true}
+      onRetrievedSelected={handleRetrievedRows}
+      retrieveRowsBtnTitle="Get Row"
+      {...props}
+    >
+      {props.items.map((row, index) => (
+        <TableRow key={index}>
+          <td data-field="Type">
+            <FontAwesomeIcon icon={"file-" + row.Type}></FontAwesomeIcon>
+          </td>
+          <td data-field="Name">{row.Name} app</td>
+          <td data-field="Description">{row.Description}</td>
+          <td data-field="Tags">{row.Tags}</td>
+          <td data-field="Last Viewed">{row.LastViewed}</td>
+          <td data-field="Expiration">{row.Expiration}</td>
+        </TableRow>
+      ))}
+    </Table>
+  );
+};
 
 const SampleDynamicPaginatedTable = withPagination()(SampleDynamicTable);
 

@@ -1,54 +1,78 @@
-import React, {useContext, useState} from 'react';
-import { Nav, NavMenu } from '@ry4ngch/salient-react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Link } from 'react-router-dom';
-import NavigateContext from '../../store/navigate-context';
-import { useNavigate } from 'react-router-dom';
+import React, { useContext, useState } from "react";
+import { Nav, NavMenu } from "@ry4ngch/salient-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
+import NavigateContext from "../../store/navigate-context";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-    const ctx = useContext(NavigateContext);
-    const [navbarTheme, setNavbarTheme] = useState('blue');
-    const navbarThemesSet = ['gray', 'offwhite', 'dark', 'blue', 'navy'];
-    const navigate = useNavigate();
+  const ctx = useContext(NavigateContext);
+  const [navbarTheme, setNavbarTheme] = useState("blue");
+  const navbarThemesSet = ["gray", "offwhite", "dark", "blue", "navy"];
+  const navigate = useNavigate();
 
-    const navigatePage = (link) => {
-        navigate(link);
-    }
-    return (
-        <Nav title="Salient" theme={navbarTheme} shift={true} navSlideDown={false} brandLogo={<FontAwesomeIcon icon="circle-notch" size="2x" className="brand-icon"></FontAwesomeIcon>}>
-            <NavMenu>
-                <li data-tooltip="Home">
-                    <Link to="/">
-                        <FontAwesomeIcon className="navlink-icon" icon="home"></FontAwesomeIcon>
-                        <span className="navlink-text">Home</span>
-                    </Link>
-                </li>
-                <li data-tooltip="UI" data-dropdown>
-                    <a>
-                        <FontAwesomeIcon className="navlink-icon" icon="caret-down"></FontAwesomeIcon>
-                        <span className="navlink-text">Features</span>
-                    </a>
-                    <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        {ctx.pageLinks.map((page, index) => (
-                            <li key={index} onClick={() => navigatePage(page.link)}><a className="dropdown-item">{page.name}</a></li>
-                        ))}
-                    </ul>
-                </li>
-                <li data-tooltip="Dropdown" data-dropdown>
-                    <a>
-                        <FontAwesomeIcon className="navlink-icon" icon="caret-down"></FontAwesomeIcon>
-                        <span className="navlink-text">Select Navbar Theme</span>
-                    </a>
-                    <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        {navbarThemesSet.map((theme, index) => (
-                            <li key={index} onClick={() => setNavbarTheme(theme)}><a className="dropdown-item">{theme}</a></li>
-                        ))}
-                    </ul>
-                </li>
-            </NavMenu>
-        </Nav>
-    )
-}
+  const navigatePage = (link) => {
+    navigate(link);
+  };
+  return (
+    <Nav
+      title="Salient"
+      theme={navbarTheme}
+      shift={true}
+      navSlideDown={false}
+      brandLogo={
+        <FontAwesomeIcon
+          icon="circle-notch"
+          size="2x"
+          className="brand-icon"
+        ></FontAwesomeIcon>
+      }
+    >
+      <NavMenu>
+        <li data-tooltip="Home">
+          <Link to="/">
+            <FontAwesomeIcon
+              className="navlink-icon"
+              icon="home"
+            ></FontAwesomeIcon>
+            <span className="navlink-text">Home</span>
+          </Link>
+        </li>
+        <li data-tooltip="UI" data-dropdown>
+          <a>
+            <FontAwesomeIcon
+              className="navlink-icon"
+              icon="caret-down"
+            ></FontAwesomeIcon>
+            <span className="navlink-text">Features</span>
+          </a>
+          <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            {ctx.pageLinks.map((page, index) => (
+              <li key={index} onClick={() => navigatePage(page.link)}>
+                <a className="dropdown-item">{page.name}</a>
+              </li>
+            ))}
+          </ul>
+        </li>
+        <li data-tooltip="Dropdown" data-dropdown>
+          <a>
+            <FontAwesomeIcon
+              className="navlink-icon"
+              icon="caret-down"
+            ></FontAwesomeIcon>
+            <span className="navlink-text">Select Navbar Theme</span>
+          </a>
+          <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            {navbarThemesSet.map((theme, index) => (
+              <li key={index} onClick={() => setNavbarTheme(theme)}>
+                <a className="dropdown-item">{theme}</a>
+              </li>
+            ))}
+          </ul>
+        </li>
+      </NavMenu>
+    </Nav>
+  );
+};
 
 export default Navbar;
-

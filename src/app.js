@@ -1,188 +1,186 @@
-import React, {Component} from 'react';
-import {createRoot} from 'react-dom/client'
-import 'normalize.css/normalize.css';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import React, { Component } from "react";
+import { createRoot } from "react-dom/client";
+import "normalize.css/normalize.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // import Bootstrap styles
-import './styles/custom-bootstrap.scss';
+import "./styles/custom-bootstrap.scss";
 
 // import Salient library styles (from the built package)
-import '@ry4ngch/salient-react/dist/salient-react.css';
+import "@ry4ngch/salient-react/dist/salient-react.css";
 
 // import personal styles
-import './styles/styles.scss';
+import "./styles/styles.scss";
 
 // import pages & layouts
-import Root from './layout/Root';
-import ErrorPage from './pages/Error';
-import Showcase from './pages/Showcase';
-import Dashboard from './pages/Dashboard';
-import TablesDemo from './pages/TablesDemo';
-import CardsDemo from './pages/CardsDemo';
-import BreadcrumbsDemo from './pages/BreadcrumbsDemo';
-import ListDemo from './pages/ListDemo';
-import TimelineDemo from './pages/TimelineDemo';
-import TabsDemo from './pages/TabsDemo';
-import AccordianDemo from './pages/AccordianDemo';
-import TreeviewDemo from './pages/TreeviewDemo';
-import ButtonsDemo from './pages/ButtonsDemo';
-import FormUIsDemo from './pages/FormUIDemo';
-import ModalDemo from './pages/ModalDemo';
-import BadgesDemo from './pages/BadgesDemo';
-import BannersDemo from './pages/BannersDemo';
-import SidebarDemo from './pages/SidebarDemo';
-import ProgressDemo from './pages/ProgressDemo';
-import ChartDemo from './pages/ChartDemo';
-import GridDemo from './pages/GridDemo';
-import MaintenancePage from './Maintenance';
-import ToolbarDemo from './pages/ToolbarDemo';
-import UploadDemo from './pages/UploadDemo';
-import AvatarDemo from './pages/AvatarDemo';
-import IconsDemo from './pages/IconsDemo';
-import DrawerDemo from './pages/DrawerDemo';
+import Root from "./layout/Root";
+import ErrorPage from "./pages/Error";
+import Showcase from "./pages/Showcase";
+import Dashboard from "./pages/Dashboard";
+import TablesDemo from "./pages/TablesDemo";
+import CardsDemo from "./pages/CardsDemo";
+import BreadcrumbsDemo from "./pages/BreadcrumbsDemo";
+import ListDemo from "./pages/ListDemo";
+import TimelineDemo from "./pages/TimelineDemo";
+import TabsDemo from "./pages/TabsDemo";
+import AccordianDemo from "./pages/AccordianDemo";
+import TreeviewDemo from "./pages/TreeviewDemo";
+import ButtonsDemo from "./pages/ButtonsDemo";
+import FormUIsDemo from "./pages/FormUIDemo";
+import ModalDemo from "./pages/ModalDemo";
+import BadgesDemo from "./pages/BadgesDemo";
+import BannersDemo from "./pages/BannersDemo";
+import SidebarDemo from "./pages/SidebarDemo";
+import ProgressDemo from "./pages/ProgressDemo";
+import ChartDemo from "./pages/ChartDemo";
+import GridDemo from "./pages/GridDemo";
+import MaintenancePage from "./Maintenance";
+import ToolbarDemo from "./pages/ToolbarDemo";
+import UploadDemo from "./pages/UploadDemo";
+import AvatarDemo from "./pages/AvatarDemo";
+import IconsDemo from "./pages/IconsDemo";
+import DrawerDemo from "./pages/DrawerDemo";
 
 // import Navigate Provider context
-import { AppProvider } from './store/navigate-context';
+import { AppProvider } from "./store/navigate-context";
 
 // import jQuery
 // import 'jquery';
 
-const root = createRoot(document.getElementById('app'));
+const root = createRoot(document.getElementById("app"));
 
 const router = createBrowserRouter([
-	{
-		path: '/', 
-		element: <Root/>,
-		errorElement: <ErrorPage/>,
-		children: [
-			{
-				index: true, //when path is '/'
-				element: <Showcase/>
-			},
-			{
-				path: '/dashboard',
-				element: <Dashboard/>
-			},
-			{
-				path: '/tables',
-				element: <TablesDemo/>
-			},
-			{
-				path: '/cards',
-				element: <CardsDemo/>
-			},
-			{
-				path: '/breadcrumbs',
-				element: <BreadcrumbsDemo/>
-			},
-			{
-				path: '/list',
-				element: <ListDemo/>
-			},
-			{
-				path: '/timeline',
-				element: <TimelineDemo/>
-			},
-			{
-				path: '/tabs',
-				element: <TabsDemo/>
-			},
-			{
-				path: '/accordian',
-				element: <AccordianDemo/>
-			},
-			{
-				path: '/treeview',
-				element: <TreeviewDemo/>
-			},
-			{
-				path: '/buttons',
-				element: <ButtonsDemo/>
-			},
-			{
-				path: '/formUIs',
-				element: <FormUIsDemo/>
-			},
-			{
-				path: '/modal',
-				element: <ModalDemo/>
-			},
-			{
-				path: '/badges',
-				element: <BadgesDemo/>
-			},
-			{
-				path: '/banners',
-				element: <BannersDemo/>
-			},
-			{
-				path: '/sidebar',
-				element: <SidebarDemo/>
-			},
-			{
-				path: '/progress',
-				element: <ProgressDemo/>
-			},
-			{
-				path: '/chart',
-				element: <ChartDemo/>
-			},
-			{
-				path: '/grid',
-				element: <GridDemo/>
-			},
-			{
-				path: '/toolbar',
-				element: <ToolbarDemo/>
-			},
-			{
-				path: '/upload',
-				element: <UploadDemo/>
-			},
-			{
-				path: '/avatar',
-				element: <AvatarDemo/>
-			},
-			{
-				path: '/icons',
-				element: <IconsDemo/>
-			},
-			{
-				path: '/drawer',
-				element: <DrawerDemo/>
-			},
-
-		]
-	}
-])
+  {
+    path: "/",
+    element: <Root />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true, //when path is '/'
+        element: <Showcase />,
+      },
+      {
+        path: "/dashboard",
+        element: <Dashboard />,
+      },
+      {
+        path: "/tables",
+        element: <TablesDemo />,
+      },
+      {
+        path: "/cards",
+        element: <CardsDemo />,
+      },
+      {
+        path: "/breadcrumbs",
+        element: <BreadcrumbsDemo />,
+      },
+      {
+        path: "/list",
+        element: <ListDemo />,
+      },
+      {
+        path: "/timeline",
+        element: <TimelineDemo />,
+      },
+      {
+        path: "/tabs",
+        element: <TabsDemo />,
+      },
+      {
+        path: "/accordian",
+        element: <AccordianDemo />,
+      },
+      {
+        path: "/treeview",
+        element: <TreeviewDemo />,
+      },
+      {
+        path: "/buttons",
+        element: <ButtonsDemo />,
+      },
+      {
+        path: "/formUIs",
+        element: <FormUIsDemo />,
+      },
+      {
+        path: "/modal",
+        element: <ModalDemo />,
+      },
+      {
+        path: "/badges",
+        element: <BadgesDemo />,
+      },
+      {
+        path: "/banners",
+        element: <BannersDemo />,
+      },
+      {
+        path: "/sidebar",
+        element: <SidebarDemo />,
+      },
+      {
+        path: "/progress",
+        element: <ProgressDemo />,
+      },
+      {
+        path: "/chart",
+        element: <ChartDemo />,
+      },
+      {
+        path: "/grid",
+        element: <GridDemo />,
+      },
+      {
+        path: "/toolbar",
+        element: <ToolbarDemo />,
+      },
+      {
+        path: "/upload",
+        element: <UploadDemo />,
+      },
+      {
+        path: "/avatar",
+        element: <AvatarDemo />,
+      },
+      {
+        path: "/icons",
+        element: <IconsDemo />,
+      },
+      {
+        path: "/drawer",
+        element: <DrawerDemo />,
+      },
+    ],
+  },
+]);
 
 class App extends Component {
-	state = {
-		siteInMaintenance: false
-	}
+  state = {
+    siteInMaintenance: false,
+  };
 
-	componentDidMount(){
-		const flag = process.env.REACT_APP_MAINTENANCE_MODE === 'true';
-		this.setState((prevState) => {
-			return {
-				...prevState,
-				siteInMaintenance: flag
-			}
-		})
-	}
+  componentDidMount() {
+    const flag = process.env.REACT_APP_MAINTENANCE_MODE === "true";
+    this.setState((prevState) => {
+      return {
+        ...prevState,
+        siteInMaintenance: flag,
+      };
+    });
+  }
 
-    render(){
-		if(this.state.siteInMaintenance){
-			return <MaintenancePage/>
-		} else {
-			return <RouterProvider router={router}/>  
-		}
-		
+  render() {
+    if (this.state.siteInMaintenance) {
+      return <MaintenancePage />;
+    } else {
+      return <RouterProvider router={router} />;
     }
+  }
 }
 
 root.render(
-	<AppProvider>
-		<App/>
-	</AppProvider>
+  <AppProvider>
+    <App />
+  </AppProvider>,
 );

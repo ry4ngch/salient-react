@@ -42,7 +42,7 @@ export default [
       // React
       "react/prop-types": "off",
       "react/react-in-jsx-scope": "off",
-      "react/jsx-uses-react": "off",
+      "react/jsx-uses-react": "error",
       "react/jsx-uses-vars": "error",
 
       // React hooks - warn instead of error for legacy code

@@ -11,9 +11,23 @@ import React from "react";
  *   <TextFieldV2 label="Username" inputPrefix={<FormAffix icon="icon-search" />} inputSuffix={<FontAwesomeIcon icon="eye" />} expandFull={true} />
  *   <TextFieldV2 label="Password" error="Minimum 8 characters required" minlength={8} />
  */
-const TextFieldV2 = ({ type = "text", label, tag, helper, error, inputPrefix, inputSuffix, expandFull = false, className, children, ...rest }) => {
+const TextFieldV2 = ({
+  type = "text",
+  label,
+  tag,
+  helper,
+  error,
+  inputPrefix,
+  inputSuffix,
+  expandFull = false,
+  className,
+  children,
+  ...rest
+}) => {
   return (
-    <div className={`text-field-group ${expandFull ? "expand-full" : ""} ${error ? "has-error" : ""} ${className || ""}`.trim()}>
+    <div
+      className={`text-field-group ${expandFull ? "expand-full" : ""} ${error ? "has-error" : ""} ${className || ""}`.trim()}
+    >
       {children}
       {label && (
         <label className="text-field-title" htmlFor={rest.id}>
@@ -26,7 +40,11 @@ const TextFieldV2 = ({ type = "text", label, tag, helper, error, inputPrefix, in
         <input type={type} {...rest} />
         {inputSuffix ? inputSuffix : ""}
       </div>
-      {(error || helper) && <p className={`text-field-helper ${error ? "is-error" : ""}`}>{error || helper}</p>}
+      {(error || helper) && (
+        <p className={`text-field-helper ${error ? "is-error" : ""}`}>
+          {error || helper}
+        </p>
+      )}
     </div>
   );
 };

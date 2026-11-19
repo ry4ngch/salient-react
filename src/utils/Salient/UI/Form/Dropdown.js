@@ -1,6 +1,16 @@
 import React, { useState, useRef } from "react";
 
-const Dropdown = ({ onChange, placeholder, isSearchable = false, children, className, inputPrefix, expandFull = false, style, ...rest}) => {
+const Dropdown = ({
+  onChange,
+  placeholder,
+  isSearchable = false,
+  children,
+  className,
+  inputPrefix,
+  expandFull = false,
+  style,
+  ...rest
+}) => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [active, setActive] = useState(false);
   const [activeIndex, setActiveIndex] = useState(null);
@@ -33,11 +43,13 @@ const Dropdown = ({ onChange, placeholder, isSearchable = false, children, class
 
     // Scroll to the matching option
     const option = React.Children.toArray(children).find((item) =>
-      item.props.children.toLowerCase().startsWith(search)
+      item.props.children.toLowerCase().startsWith(search),
     );
     if (!option) return;
 
-    const listItem = listRef.current?.querySelector(`[data-key='${option.props.value}']`);
+    const listItem = listRef.current?.querySelector(
+      `[data-key='${option.props.value}']`,
+    );
     if (!listItem) return;
 
     const listTop = listRef.current.getBoundingClientRect().top;
@@ -58,7 +70,14 @@ const Dropdown = ({ onChange, placeholder, isSearchable = false, children, class
 
   return (
     <div
-      className={['dropdown', active ? "active" : "", expandFull ? 'expand-full' : '', className || ''].join(' ').trim()}
+      className={[
+        "dropdown",
+        active ? "active" : "",
+        expandFull ? "expand-full" : "",
+        className || "",
+      ]
+        .join(" ")
+        .trim()}
       ref={dropdownRef}
       onClick={showList}
       tabIndex={0}
@@ -66,7 +85,7 @@ const Dropdown = ({ onChange, placeholder, isSearchable = false, children, class
     >
       {isSearchable ? (
         <div className="dropdown__selected">
-          {inputPrefix ? inputPrefix : ''}
+          {inputPrefix ? inputPrefix : ""}
           <input
             type="text"
             className="dropdown__input"
@@ -78,7 +97,7 @@ const Dropdown = ({ onChange, placeholder, isSearchable = false, children, class
         </div>
       ) : (
         <div className="dropdown__selected">
-          {inputPrefix ? inputPrefix : ''}
+          {inputPrefix ? inputPrefix : ""}
           {selectedOption?.props.children || placeholder}
         </div>
       )}
@@ -89,10 +108,16 @@ const Dropdown = ({ onChange, placeholder, isSearchable = false, children, class
                 key: index,
                 "data-key": item.props.value,
                 "data-index": index,
-                className: ["dropdown__list__item", activeIndex === index ? "active" : "", item.props.className || ""].join(" ").trim(),
-                onClick: (event) => handleChange(event, item)
+                className: [
+                  "dropdown__list__item",
+                  activeIndex === index ? "active" : "",
+                  item.props.className || "",
+                ]
+                  .join(" ")
+                  .trim(),
+                onClick: (event) => handleChange(event, item),
               })
-            : item
+            : item,
         )}
       </ul>
     </div>
