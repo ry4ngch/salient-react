@@ -1,8 +1,9 @@
+@use "salient-theme" as *;
 :root {
     --avatar-size: 100px;
-    --bg1: #ddd;
-    --bgBorder: #c5c5c5;
-    --accent: #fff;
+    --bg1: var(--sl-surface-sunken);
+    --bgBorder: var(--sl-border-strong);
+    --accent: var(--sl-surface);
     --catchLightAfterSize: 12px;
     --catchLightBeforeSize: 8px;
     --borderLineType: dashed;

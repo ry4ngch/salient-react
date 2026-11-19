@@ -1,8 +1,8 @@
 import React from "react";
-import Toolbar, {ToolbarButton} from "../utils/Salient/UI/Toolbar/Toolbar";
-import Grid, {GridRow, GridItem} from '../utils/Salient/UI/Grid/Grid'
+import { Toolbar, ToolbarButton } from '@ry4ngch/salient-react';
+import { Grid, GridRow, GridItem } from '@ry4ngch/salient-react';
 import CodeBlock from '../components/Docs/CodeBlock';
-import Table, {TableRow} from '../utils/Salient/UI/Table/Table';
+import { Table, TableRow } from '@ry4ngch/salient-react';
 
 const ToolbarDemo = () => {
     return (
@@ -14,7 +14,7 @@ const ToolbarDemo = () => {
                     below, left or right of the button.
                 </p>
                 <h3>Import</h3>
-                <CodeBlock code={`import Toolbar, {ToolbarButton} from '../utils/Salient/UI/Toolbar/Toolbar';`} />
+                <CodeBlock code={`import { Toolbar, ToolbarButton } from '@ry4ngch/salient-react';`} />
                 <h3>Basic Usage</h3>
                 <CodeBlock code={`<Toolbar>
     <ToolbarButton tooltip="Search" tooltipOrientation="bottom">

@@ -1,6 +1,6 @@
 import React from "react";
-import Table, {TableRow} from '../../utils/Salient/UI/Table/TableV2';
-import withPagination from "../../utils/Salient/UI/Pagination/withPagination";
+import { Table, TableRow } from '@ry4ngch/salient-react';
+import { withPagination } from '@ry4ngch/salient-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 

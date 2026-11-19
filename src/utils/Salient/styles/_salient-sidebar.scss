@@ -1,15 +1,13 @@
+@use "salient-theme" as *;
+
 :root {
-  --sb-primary: rgb(41, 98, 255);
-  --sb-bg-hover: #edeff0;
-  --sb-text: rgba(0, 0, 0, 0.7);
-  --sb-border: rgba(0, 0, 0, 0.2);
   --sb-pad: 20px;
 }
 
 .sidebar {
   width: clamp(240px, 50%, 400px);
   height: 100%;
-  background: #f8f8f8;
+  background: var(--sl-surface-alt);
   top: 0;
   left: 0;
   z-index: 1;
@@ -50,19 +48,19 @@
 
 /* ========== Base List Item ========== */
 .sidebar li:not(:last-child) {
-  border-bottom: 1px solid var(--sb-border);
+  border-bottom: 1px solid var(--sl-sidebar-border);
   position: relative;
 }
 
 .sidebar li:hover > a {
-  background: var(--sb-bg-hover);
-  color: var(--sb-primary);
+  background: var(--sl-sidebar-hover);
+  color: var(--sl-sidebar-primary);
   cursor: pointer;
 }
 
 .sidebar li.active > a {
-  background: var(--sb-bg-hover);
-  color: var(--sb-primary);
+  background: var(--sl-sidebar-hover);
+  color: var(--sl-sidebar-primary);
 }
 
 .sidebar li.active > a > span + * {
@@ -73,7 +71,7 @@
   content: '';
   height: 100%;
   width: 3px;
-  background: var(--sb-primary);
+  background: var(--sl-sidebar-primary);
   display: block;
   left: 0;
   top: 0;
@@ -82,8 +80,8 @@
 }
 
 .sidebar li.active > a > span > .notification {
-  background-color: var(--sb-primary);
-  color: var(--sb-bg-hover);
+  background-color: var(--sl-sidebar-primary);
+  color: var(--sl-sidebar-hover);
 }
 
 .sidebar .notification {
@@ -97,8 +95,8 @@
     top: 50%;
     margin: auto 0 auto 0.75rem;
     border-radius: 50%;
-    background-color: #e6eef9;
-    color: var(--sb-primary);
+    background-color: var(--sl-sidebar-badge-bg);
+    color: var(--sl-sidebar-primary);
     transition: 0.15s ease-in;
     font-weight: 500;
     text-align: center;
@@ -110,14 +108,14 @@
   vertical-align: middle;
   width: 100%;
   padding: 15px 15px 15px var(--sb-pad);
-  color: var(--sb-text);
+  color: var(--sl-sidebar-text);
   text-decoration: none;
   position: relative;
   transition: color .3s;
 }
 
 .sidebar a:focus {
-  outline: 2px solid var(--sb-primary);
+  outline: 2px solid var(--sl-sidebar-primary);
   outline-offset: 2px;
 }
 
@@ -151,5 +149,5 @@
 .sidebar ul ul > li > a {
   padding: 13px 13px 13px var(--sb-pad);
   font-size: 0.95em;
-  color: var(--sb-text);
+  color: var(--sl-sidebar-text);
 }

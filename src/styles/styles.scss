@@ -2,10 +2,6 @@
 @use './base/base';
 @use "./base/settings";
 
-/* Note: remove salient-all.scss if bootstrap is use */
-/* Salient.scss is a custom library */
-@use "../utils/Salient/styles/salient-all";
-
 // Layout styles
 @use "layout/header";
 @use "layout/footer";

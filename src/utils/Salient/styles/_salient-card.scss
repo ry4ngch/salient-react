@@ -1,12 +1,13 @@
+@use "salient-theme" as *;
 /* Card */
 .card {
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 0.16), 0 2px 10px 0 rgb(0 0 0 / 0.12);
     background-clip: padding-box;
     box-sizing: border-box;
     transition: 0.3s;
     border-radius: 5px;
     margin-bottom: 1em;
-    background-color: #fdfcfc;
+    background-color: var(--sl-card-bg);
     overflow: hidden;
     word-wrap: break-word;
     position: relative;
@@ -21,27 +22,27 @@
 /** Card options **/
 .card.card-border {
     box-shadow: 0 0 0 0, 0 0 0 0 !important;
-    border: 1px solid rgba(160, 160, 160, 0.2);
+    border: 1px solid var(--sl-card-border);
 }
 
 .card.card-flat {
-    background-color: #fff;
+    background-color: var(--sl-surface);
     padding: 24px;
-    box-shadow: 0 2px 4px 0 rgba(14, 30, 37, 0.12);
+    box-shadow: 0 2px 4px 0 rgb(14 30 37 / 0.12);
 }
 
 .card.glass-morph{
     -webkit-backdrop-filter: blur(3px);
     backdrop-filter: blur(3px);
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+    background-color: var(--sl-card-glass-bg);
+    border: 1px solid var(--sl-card-glass-border);
+    box-shadow: 2px 2px 4px rgb(0 0 0 / 0.25);
     position: relative;
     transition: transform 250ms;
 }
 
 .card.blur-out {
-    background: #ECF1F524;
+    background: var(--sl-card-blur-bg);
     mix-blend-mode: normal;
     backdrop-filter: blur(15px);
     box-shadow: 0px 20px 53px -30px rgb(95 102 173 / 57%);
@@ -110,14 +111,14 @@
     }
 
     .card__title {
-        text-shadow: 2px 2px 2px rgba(black, 0.1);
+        text-shadow: 2px 2px 2px rgb(0 0 0 / 0.1);
     }
 
     button {
         text-align: center;
         position: absolute;
         right: 0px;
-        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+        text-shadow: 2px 2px 2px rgb(0 0 0 / 0.1);
         bottom: 0px;
         margin: 30px
     }
@@ -150,15 +151,15 @@
 }
 
 .bg-aqua {
-    background: #79aecf;
+    background: var(--sl-card-price-bg);
 }
 
 
 .bg-glass-opaque {
-    background: hsla(0, 0%, 100%, 0.25);
+    background: rgb(255 255 255 / 0.25);
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
-    border: 1px solid hsla(0, 0%, 100%, 0.25);
+    border: 1px solid rgb(255 255 255 / 0.25);
 }
 
 .bg-blue-glass {
@@ -191,7 +192,7 @@
 }
 
 .card.card_scale:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 var(--sl-shadow-color);
     z-index: 1;
     transform: scale(1.05);
     transition: box-shadow 0.2s ease,
@@ -241,7 +242,7 @@
 .card_tilt:has(.cell:nth-child(n+91):hover) { --x: calc(-1 * var(--amt)); }
 
 .cell.debug {
-    border: 1px solid #f00;
+    border: 1px solid var(--sl-danger);
     transition: 200ms ease-out;
 }
 
@@ -255,9 +256,9 @@
 
 .card_tilt .card-grid {
     grid-area: 1 / 1 / -1 / -1;
-    background: #fff;
+    background: var(--sl-surface);
     border-radius: inherit;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 0.16), 0 2px 10px 0 rgb(0 0 0 / 0.12);
     transform: perspective(800px) rotateY(calc(var(--y) * 1deg)) rotateX(calc(var(--x) * 1deg));
     transition: transform 500ms ease;
 }

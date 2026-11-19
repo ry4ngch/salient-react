@@ -1,10 +1,10 @@
 import React from 'react'
 
 // import Salient Library
-import Card, {CardInfo, CardContent, CardTitle} from '../utils/Salient/UI/Card/Card';
-import Treeview, {TreeItem} from '../utils/Salient/UI/Treeview/Treeview';
+import { Card, CardInfo, CardContent, CardTitle } from '@ry4ngch/salient-react';
+import { Treeview, TreeItem } from '@ry4ngch/salient-react';
 import CodeBlock from '../components/Docs/CodeBlock';
-import Table, {TableRow} from '../utils/Salient/UI/Table/Table';
+import { Table, TableRow } from '@ry4ngch/salient-react';
 
 const TreeviewDemo = () => {
   return (
@@ -16,9 +16,9 @@ const TreeviewDemo = () => {
             <code>TreeItem</code> branches toggle open/closed on click and can be nested to any depth, with plain <code>&lt;li&gt;</code> elements as leaves.
           </p>
           <h3>Import</h3>
-          <CodeBlock code={`import Treeview, {TreeItem} from '../utils/Salient/UI/Treeview/Treeview';`} language="js" />
+          <CodeBlock code={`import { Treeview, TreeItem } from '@ry4ngch/salient-react';`} language="js" />
           <h3>Basic Usage</h3>
-          <CodeBlock code={`import Treeview, {TreeItem} from '../utils/Salient/UI/Treeview/Treeview';
+          <CodeBlock code={`import { Treeview, TreeItem } from '@ry4ngch/salient-react';
 
 <Treeview>
     <TreeItem text="Item 1" subtext="(with levels)" expandOnLoad={true}>

@@ -1,8 +1,8 @@
 import React, {useState} from "react";
-import Upload from "../utils/Salient/UI/Upload/Upload";
-import Banner, {BannerContent} from '../utils/Salient/UI/Banner/Banner';
+import { Upload } from '@ry4ngch/salient-react';
+import { Banner, BannerContent } from '@ry4ngch/salient-react';
 import CodeBlock from '../components/Docs/CodeBlock';
-import Table, {TableRow} from '../utils/Salient/UI/Table/Table';
+import { Table, TableRow } from '@ry4ngch/salient-react';
 
 const UploadDemo = () => {
     const supportedExtensions = ['.png', '.jpg', '.docx', '.pdf'];
@@ -26,7 +26,7 @@ const UploadDemo = () => {
                 the list of selected files, and supports drag-to-reorder within that list.
             </p>
             <h3>Import</h3>
-            <CodeBlock code={`import Upload from '../utils/Salient/UI/Upload/Upload';`} />
+            <CodeBlock code={`import { Upload } from '@ry4ngch/salient-react';`} />
             <h3>Basic Usage</h3>
             <CodeBlock code={`<Upload
     supportedExtensions={['.png', '.jpg', '.pdf']}

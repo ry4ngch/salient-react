@@ -1,11 +1,8 @@
+@use "salient-theme" as *;
+
 /* -------------------------------- 
 Basic Style
 -------------------------------- */
-$bc-bg-active-color: hsl(223, 14%, 20%);
-$bc-txt-active-color: rgb(41, 98, 255);
-$bc-bg-color: #edeff0;
-$bc-badge-bg-color: #f8f8f8;
-$bc-badge-txt-color: hsl(223, 14%, 20%);
 
 .sl-breadcrumb a {
     text-decoration: none;
@@ -35,7 +32,7 @@ $bc-badge-txt-color: hsl(223, 14%, 20%);
     display: inline-block;
     content: '\00bb';
     margin: 0 .6em;
-    color: #959fa5;
+    color: var(--sl-text-subtle);
 }
 
 .sl-breadcrumb li:last-of-type::after, .sl-multi-steps li:last-of-type::after {
@@ -47,7 +44,7 @@ $bc-badge-txt-color: hsl(223, 14%, 20%);
     /* single step */
     display: inline-block;
     //font-size: 1.4rem;
-    color: #2c3f4c;
+    color: var(--sl-breadcrumb-text);
 }
 
 .sl-breadcrumb li.active > *, .sl-multi-steps li.active > * {
@@ -111,7 +108,7 @@ Triangle breadcrumb
     .sl-breadcrumb.triangle li > * {
         position: relative;
         padding: 1em .8em 1em 2.5em;
-        color: #2c3f4c;
+        color: var(--sl-breadcrumb-text);
         background-color: $bc-bg-color;
         /* the border color is used to style its ::after pseudo-element */
         border-color: $bc-bg-color;
@@ -119,7 +116,7 @@ Triangle breadcrumb
 
     .sl-breadcrumb.triangle li.active > * {
         /* selected step */
-        color: #ffffff;
+        color: var(--sl-on-primary);
         background-color: $bc-bg-active-color;
         border-color: $bc-bg-active-color;
     }
@@ -160,7 +157,7 @@ Triangle breadcrumb
         -ms-transform: translateX(4px);
         -o-transform: translateX(4px);
         transform: translateX(4px);
-        border-left-color: #ffffff;
+        border-left-color: var(--sl-on-primary);
         /* reset style */
         margin: 0;
     }
@@ -228,7 +225,7 @@ Multi steps indicator
 
     .sl-multi-steps li > *, .sl-multi-steps li.active > * {
         position: relative;
-        color: #2c3f4c;
+        color: var(--sl-breadcrumb-text);
     }
 
     .sl-multi-steps.custom-separator li::after {
@@ -256,7 +253,7 @@ Multi steps indicator
     }
    
     .sl-multi-steps.text-center li.active > *, .sl-multi-steps.text-center li.visited > * {
-        color: #ffffff;
+        color: var(--sl-on-primary);
         background-color: $bc-bg-active-color;
     }
 
@@ -346,13 +343,13 @@ Add a counter to the multi-steps indicator
         width: 26px;
         line-height: 26px;
         // font-size: 1.4rem;
-        color: #ffffff;
+        color: var(--sl-on-primary);
     }
 
     .sl-multi-steps.text-top.count li:not(.active) em::before,
     .sl-multi-steps.text-bottom.count li:not(.active) em::before {
         /* steps not visited yet - counter color */
-        color: #2c3f4c;
+        color: var(--sl-breadcrumb-text);
     }
 
     .sl-multi-steps.text-top.count li::after {

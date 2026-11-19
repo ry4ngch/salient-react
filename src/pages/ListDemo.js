@@ -1,10 +1,10 @@
 import React from 'react'
 
 // import Salient Library
-import Card, {CardInfo, CardContent, CardTitle} from '../utils/Salient/UI/Card/Card';
-import List, {ListItem} from '../utils/Salient/UI/List/List';
+import { Card, CardInfo, CardContent, CardTitle } from '@ry4ngch/salient-react';
+import { List, ListItem } from '@ry4ngch/salient-react';
 import CodeBlock from '../components/Docs/CodeBlock';
-import Table, {TableRow} from '../utils/Salient/UI/Table/Table';
+import { Table, TableRow } from '@ry4ngch/salient-react';
 
 const ListDemo = () => {
   return (
@@ -15,9 +15,9 @@ const ListDemo = () => {
           <code>ListItem</code> marks each row and can highlight on hover for interactive lists.
         </p>
         <h3>Import</h3>
-        <CodeBlock code={`import List, {ListItem} from '../utils/Salient/UI/List/List';`} language="js" />
+        <CodeBlock code={`import { List, ListItem } from '@ry4ngch/salient-react';`} language="js" />
         <h3>Basic Usage</h3>
-        <CodeBlock code={`import List, {ListItem} from '../utils/Salient/UI/List/List';
+        <CodeBlock code={`import { List, ListItem } from '@ry4ngch/salient-react';
 
 <List>
     <ListItem hasHoverHighlight={true}>List Item 1</ListItem>

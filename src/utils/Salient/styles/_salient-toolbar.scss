@@ -1,8 +1,10 @@
+@use "salient-theme" as *;
+
 :root {
-	--light: #fff;
-	--dark: #000;
-	--background: var(--light);
-	--mist: light-dark(hsl(0 0% 80%), hsl(0 0% 30%));;
+	--light: var(--sl-toolbar-light);
+	--dark: var(--sl-toolbar-dark);
+	--background: var(--sl-toolbar-bg);
+	--mist: var(--sl-toolbar-mist);
 	--radius: 4px;
 	--button-size: 40px;
 	--transition: 0.2s ease-in-out;
@@ -12,7 +14,7 @@
 .toolbar {
 	background: var(--light);
 	border-radius: var(--radius);
-	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 12px 40px var(--sl-shadow-color);
 	display: flex;
 	padding: 10px;
 	position: relative;

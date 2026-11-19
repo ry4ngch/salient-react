@@ -1,15 +1,17 @@
+@use "salient-theme" as *;
+
 .banner {
     position: relative;
     width: 100%;
     bottom: 0;
     z-index: 2;
-    box-shadow: 0px -4px 8px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px -4px 8px 0px var(--sl-shadow-color);
     border-radius: 5px;
     margin: 0 auto;
     left: 0;
     right: 0;
-    color: #616161;
-    background-color: #f5f5f5;
+    color: var(--sl-banner-fg);
+    background-color: var(--sl-banner-bg);
 }
 
 .banner--blockquote {
@@ -149,24 +151,24 @@
 /* Themes */
 // active
 .banner--active {
-    color: #2ba972;
-    background-color: rgba(43, 169, 114, 0.2);
+    color: var(--sl-banner-active);
+    background-color: var(--sl-banner-active-bg);
 }
 
 // cancel
 .banner--cancel {
-    color: rgba(155, 44, 44);
-    background-color: #fde7ea;
+    color: var(--sl-banner-cancel);
+    background-color: var(--sl-banner-cancel-bg);
 }
 
 .banner--disabled {
-    color: #59719d;
-    background-color: rgba(89, 113, 157, 0.2);
+    color: var(--sl-banner-disabled);
+    background-color: var(--sl-banner-disabled-bg);
 }
 
 // purple
 .banner--purple {
-    background-color: #5125ad;
+    background-color: var(--sl-banner-purple);
     color: white;
 
     // .banner__dismiss:hover {
@@ -176,7 +178,7 @@
 
 // teal
 .banner--teal {
-    background-color: #17a2b8;
+    background-color: var(--sl-banner-teal);
     color: white;
 
     // .banner__dismiss:hover {
@@ -186,7 +188,7 @@
 
 // warn 
 .banner--warn {
-    background-color: #ff9900;
+    background-color: var(--sl-banner-warn);
     color: white;
 
     // .banner__dismiss:hover {
@@ -197,7 +199,7 @@
 
 // emergency
 .banner--emergency {
-    background-color: #bb2222;
+    background-color: var(--sl-banner-emergency);
     color: white;
 
     // .banner__dismiss:hover {

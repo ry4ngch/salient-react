@@ -1,10 +1,10 @@
 import React from "react";
-import Avatar from "../utils/Salient/UI/Avatar/Avatar";
+import { Avatar } from '@ry4ngch/salient-react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import Card, {CardContent} from "../utils/Salient/UI/Card/Card";
-import Grid, {GridRow, GridItem} from "../utils/Salient/UI/Grid/Grid";
+import { Card, CardContent } from '@ry4ngch/salient-react';
+import { Grid, GridRow, GridItem } from '@ry4ngch/salient-react';
 import CodeBlock from '../components/Docs/CodeBlock';
-import Table, {TableRow} from '../utils/Salient/UI/Table/Table';
+import { Table, TableRow } from '@ry4ngch/salient-react';
 
 export default function AvatarDemo() {
     return (
@@ -16,7 +16,7 @@ export default function AvatarDemo() {
             </p>
 
             <h3>Import</h3>
-            <CodeBlock code={`import Avatar from '../utils/Salient/UI/Avatar/Avatar';`} />
+            <CodeBlock code={`import { Avatar } from '@ry4ngch/salient-react';`} />
 
             <h3>Basic Usage</h3>
             <CodeBlock code={`<Avatar src="/photo.jpg" alt="User portrait" size="100px" shape="circle" />`} />

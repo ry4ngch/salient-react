@@ -2,6 +2,8 @@
 
 Salient UI Component Library for React - A comprehensive collection of reusable React components with built-in animations, styles, and effects that eliminate the need for manual state management of UI behaviors.
 
+> **Experimental:** This library is highly experimental and its API, component names, props, styling tokens, and file structure may change between releases without notice. Pin a version and review the changelog before upgrading.
+
 ## Why Salient?
 
 The **Salient library** was developed to simplify development by eliminating the need to manually define custom states for controlling UI animations, styles, and effects. By leveraging Salient, developers can focus on building robust applications without worrying about intricate UI configurations.
@@ -39,6 +41,63 @@ function App() {
 }
 ```
 
+## Theming
+
+All component colors come from a single set of CSS custom properties (`--sl-*`) defined in `src/utils/Salient/styles/_salient-theme.scss`.
+
+### Light / dark mode
+
+Apply `data-theme` to any wrapper (or `<html>`). Every Salient component inside it re-colors automatically:
+
+```jsx
+<div data-theme="dark">
+  <Card>...</Card>
+  <Table>...</Table>
+</div>
+```
+
+Supported values: `light` (default) and `dark`. The theme also sets `color-scheme`, so native controls and scrollbars match.
+
+### Override the brand color
+
+Override tokens on any ancestor — no rebuild, no SCSS edits:
+
+```jsx
+<div style={{ '--sl-primary': '#ff6b00' }} className="my-app">
+  <Button variant="primary">Click Me</Button>
+</div>
+```
+
+Or in CSS:
+
+```css
+.my-app {
+  --sl-primary: #ff6b00;
+  --sl-primary-rgb: 255 107 0; /* used for alpha, e.g. rgb(var(--sl-primary-rgb) / 0.2) */
+  --sl-surface: #fffaf5;
+  --sl-radius: 8px;
+}
+```
+
+### Common tokens
+
+| Token | Purpose |
+| --- | --- |
+| `--sl-primary`, `--sl-on-primary`, `--sl-primary-rgb` | Brand color, its text color, and RGB triplet for transparency |
+| `--sl-success`, `--sl-danger`, `--sl-warning`, `--sl-info`, `--sl-neutral`, `--sl-muted` | Status colors (each has `-soft` background variants) |
+| `--sl-surface`, `--sl-surface-alt`, `--sl-surface-sunken`, `--sl-surface-card` | Backgrounds, from raised to inset |
+| `--sl-on-surface`, `--sl-text`, `--sl-text-muted`, `--sl-text-subtle` | Text hierarchy |
+| `--sl-border`, `--sl-border-soft`, `--sl-border-strong` | Borders |
+| `--sl-overlay`, `--sl-shadow-color`, `--sl-radius` | Overlays, shadows, shape |
+
+Component-specific tokens are also available (`--sl-nav-*`, `--sl-badge-*`, `--sl-banner-*`, `--sl-table-*`, `--sl-field-*`, `--sl-slider-*`, `--sl-tabs-*`, `--sl-card-*`, etc.) and default to the semantic tokens above.
+
+### Component scheme props/classes
+
+Existing component schemes are unchanged: `Navbar` `theme` (`dark`, `offwhite`, `grayscale`, `blue`, `navy`), `.banner--active|cancel|disabled|purple|teal|warn|emergency`, `.badge.active|disabled|stall|awaiting|pending|loading|cancel|idle`, `.progress-theme-dark|forest|sunset`, `.chart-fill--sunset|forest|indigo`, `.slider-group.gray-slider|dark-slider`, and `.sl-checkbox.*-cb` / `.switch.slider-*`. They can be combined with `data-theme`.
+
+> Component scheme classes only re-skin their own component; `data-theme` is the only switch that re-colors every component at once.
+
 ## Available Components
 
 ### Layout & Navigation
@@ -57,6 +116,8 @@ function App() {
 - **Card** - Cards with built-in hover animations (flip-x, flip-y, tilt, scale)
 - **Banner** - Alert/blockquote style banners with themes and dismissible actions
 - **Badge** - Status badges for notifications and labels
+- **Avatar** - Circular/square avatars with optional border and catch light
+- **Chart** - Horizontal/vertical bar charts with themed fills and optional value normalization
 
 ### Forms & Inputs
 - **Button** - Toggle switches, checkboxes, normal buttons with widget/icon support
@@ -65,9 +126,14 @@ function App() {
 - **TextField** - Text input with prefix/suffix icons, labels, and full HTML attribute support
 - **FormAffix** - Icon prefix/suffix component for form fields
 - **RangeSlider** - Slider with min/max, step, themes, and min/max display
+- **ChoiceField** - Card-style checkbox/radio group with labels and descriptions
+- **DateField** - Styled native date/time/datetime-local/month/week inputs
+- **ColorField** - Color picker with swatch preview and hex value
+- **FileField** - Styled file input showing selected file names
 
 ### Overlays & Interactions
 - **Modal** - Multi-section modals with navigation, blur close, and customizable themes
+- **Drawer** - Slide-in panel from the left or right edge with optional backdrop
 - **Accordion** - Single/multiple expand modes with smooth animations
 - **Tab** - Horizontal/vertical tabs with box/underline styles, auto-converts to accordion on mobile
 - **Toolbar** - Action toolbars for tables and lists
@@ -112,7 +178,7 @@ import { Navbar, NavMenu } from 'salient-react';
 ```
 
 **Props:**
-- `theme` - `dark` | `offwhite` | `grayscale` | `blue` (default: default theme)
+- `theme` - `dark` | `offwhite` | `grayscale` | `blue` | `navy` (default: default theme)
 - `shift` - Boolean, shifts navbar on mobile (default: true)
 - `navSlideDown` - Boolean, slides down instead of horizontal (default: false)
 - `brandLogo` - ReactNode for logo next to title
@@ -517,6 +583,180 @@ import { Banner, BannerContent, BannerActions, BannerAction } from 'salient-reac
   </BannerActions>
 </Banner>
 ```
+
+### Drawer
+Slide-in panel anchored to the left or right edge.
+
+```jsx
+import { Drawer, Button } from '@ry4ngch/salient-react';
+
+<Drawer
+  title="Filters"
+  showDrawer={showDrawer}
+  position="left"
+  hasBackdrop={true}
+  onCloseDrawer={() => setShowDrawer(false)}
+>
+  <section>Drawer content</section>
+</Drawer>
+```
+
+**Props:**
+- `showDrawer` - Boolean, controls visibility (default: false)
+- `onCloseDrawer` - Function, called by the close button
+- `title` - String, optional header
+- `position` - `left` | `right` (default: left)
+- `hasBackdrop` - Boolean, show the dimmed backdrop (default: true)
+
+### Avatar
+Avatar image or custom icon with optional border and catch light.
+
+```jsx
+import { Avatar } from '@ry4ngch/salient-react';
+
+<Avatar src="/avatar.png" alt="User" size="64px" shape="circle" hasBorder={true} />
+<Avatar size="48px" hasCatchLight={true}>AB</Avatar>
+```
+
+**Props:**
+- `shape` - `circle` | `square` (default: circle)
+- `size` - CSS size value for the avatar
+- `src`, `alt` - Image source and alternative text
+- `hasBorder`, `borderGap`, `borderRotation` - Border styling
+- `hasCatchLight` - Boolean, adds the glossy highlight
+
+### Chart
+Bar chart wrapper with themed fills.
+
+```jsx
+import { Chart, BarChart } from '@ry4ngch/salient-react';
+
+<Chart title="Traffic" theme="indigo" isHorz={true} showCalculatedValues={true}>
+  <BarChart label="Direct" value={40} />
+  <BarChart label="Search" value={35} />
+  <BarChart label="Social" value={25} />
+</Chart>
+```
+
+**Props:**
+- `isHorz` - Boolean, horizontal bars (default: true)
+- `labelSide` - Boolean, place labels beside the bar (default: true)
+- `calculatePctFromMax` / `calculatePctFromTotal` - Normalize bar widths
+- `showCalculatedValues` - Boolean, show percentages instead of raw values
+- `theme` - `sunset` | `forest` | `indigo`
+
+### Toolbar
+Action bar for tables and lists.
+
+```jsx
+import { Toolbar, ToolbarButton } from '@ry4ngch/salient-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+<Toolbar layoutHorz={false} isBlock={true}>
+  <ToolbarButton tooltip="Edit" onClick={handleEdit}>
+    <FontAwesomeIcon icon="pen" />
+  </ToolbarButton>
+  <ToolbarButton tooltip="Delete" onClick={handleDelete}>
+    <FontAwesomeIcon icon="trash" />
+  </ToolbarButton>
+</Toolbar>
+```
+
+**Props:**
+- `layoutHorz` - Boolean, vertical layout (default: false)
+- `isBlock` - Boolean, wrap in a block container (default: true)
+- `ToolbarButton` - `tooltip`, `tooltipOrientation` (`top` | `bottom` | `left` | `right`)
+
+### Upload
+Drag-and-drop file upload with validation.
+
+```jsx
+import { Upload } from '@ry4ngch/salient-react';
+
+<Upload
+  supportedExtensions={['.pdf', '.png', '.jpg']}
+  maxFileSize={10}
+  fileDraggable={true}
+  onFilesChange={(files) => console.log(files)}
+  validationErrorCallback={(title, message) => alert(`${title}: ${message}`)}
+/>
+```
+
+**Props:**
+- `supportedExtensions` - Array of allowed extensions
+- `maxFileSize` - Number, size limit in MB (default: 25)
+- `onFilesChange` - Function, receives the current file list
+- `validationErrorCallback` - Function `(title, message)` for rejected files
+- `fileDraggable` - Boolean, enable drag-to-reorder (default: true)
+- `uploadIconClass` - Optional icon class for the drop zone
+
+### ChoiceField
+Card-style checkbox/radio group.
+
+```jsx
+import { ChoiceField } from '@ry4ngch/salient-react';
+
+<ChoiceField
+  label="Interests"
+  multiple={true}
+  options={[
+    { value: 'web', label: 'Web Development', description: 'Frontend & backend' },
+    { value: 'design', label: 'UI/UX Design', description: 'Interfaces and experiences' },
+  ]}
+  helper="Select all that apply"
+/>
+```
+
+**Props:**
+- `options` - Array of `{ value, label, description }`
+- `multiple` - Boolean, checkboxes instead of radios (default: false)
+- `value` / `defaultValue` - Controlled or uncontrolled selection
+- `onChange` - Function, receives the new value
+- `label`, `tag`, `helper`, `error`, `disabled`
+
+### DateField
+Styled native date and time inputs.
+
+```jsx
+import { DateField } from '@ry4ngch/salient-react';
+
+<DateField type="date" label="Birth Date" min="1900-01-01" max="2026-12-31" />
+<DateField type="time" label="Appointment Time" min="09:00" max="18:00" />
+```
+
+**Props:**
+- `type` - `date` | `time` | `datetime-local` | `month` | `week`
+- `label`, `tag`, `helper`, `error`, `expandFull`
+- Passes through native input attributes (`min`, `max`, `value`, `onChange`, ...)
+
+### ColorField
+Color picker with swatch and hex preview.
+
+```jsx
+import { ColorField } from '@ry4ngch/salient-react';
+
+<ColorField label="Brand Color" defaultValue="#2563eb" onChange={handleChange} />
+```
+
+**Props:**
+- `value` / `defaultValue` - Controlled or uncontrolled color
+- `label`, `tag`, `helper`, `error`
+- `onChange` - Function, receives the change event
+
+### FileField
+Styled file input that lists the selected files.
+
+```jsx
+import { FileField } from '@ry4ngch/salient-react';
+
+<FileField label="Upload Document" accept=".pdf,.doc,.docx" helper="PDF or Word only" />
+```
+
+**Props:**
+- `accept` - Native file type filter
+- `multiple` - Boolean, allow multiple files (default: false)
+- `onChange` - Function, receives the files
+- `label`, `tag`, `helper`, `error`
 
 ## Demo Application
 

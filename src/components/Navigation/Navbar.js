@@ -1,5 +1,5 @@
 import React, {useContext, useState} from 'react';
-import Nav, {NavMenu} from '../../utils/Salient/UI/Navigation/Nav';
+import { Nav, NavMenu } from '@ry4ngch/salient-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import NavigateContext from '../../store/navigate-context';

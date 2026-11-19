@@ -1,8 +1,10 @@
+@use "salient-theme" as *;
+
 :root {
-  --progress-point-incomplete: rgb(237, 239, 240);
-  --progress-bar-fill: #2185D0;
-  --progress-bar-unfill: rgb(237, 239, 240);
-  --progress-point-complete: #2185D0;
+  --progress-point-incomplete: var(--sl-progress-track);
+  --progress-bar-fill: var(--sl-progress-fill);
+  --progress-bar-unfill: var(--sl-progress-track);
+  --progress-point-complete: var(--sl-progress-fill);
   --progress-label-color: var(--progress-bar-fill);
   --progress-circle-stroke-width: 12;
   --progress-bar-height: 12px;
@@ -11,20 +13,20 @@
 /* Themes */
 
 .progress-theme-dark {
-  --progress-bar-fill: hsl(223, 14%, 20%);
-  --progress-point-complete: hsl(223, 14%, 20%);
+  --progress-bar-fill: var(--sl-progress-dark);
+  --progress-point-complete: var(--sl-progress-dark);
   --progress-label-color: var(--progress-bar-fill);
 }
 
 .progress-theme-forest {
-  --progress-bar-fill: hsl(153, 90%, 35%);
-  --progress-point-complete: hsl(153, 90%, 35%);
+  --progress-bar-fill: var(--sl-progress-forest);
+  --progress-point-complete: var(--sl-progress-forest);
   --progress-label-color: var(--progress-bar-fill);
 }
 
 .progress-theme-sunset {
-  --progress-bar-fill: #d9534f;
-  --progress-point-complete: #d9534f;;
+  --progress-bar-fill: var(--sl-progress-sunset);
+  --progress-point-complete: var(--sl-progress-sunset);
   --progress-label-color: var(--progress-bar-fill);
 }
 
@@ -178,7 +180,7 @@
 
   .point--active & {
     outline: 3px solid var(--progress-point-incomplete);
-    box-shadow: 0 2px 4px rgba(#000, 0.2),
+    box-shadow: 0 2px 4px var(--sl-shadow-color),
                 0 0 0 4px var(--progress-point-complete);
   }
 }
@@ -266,7 +268,7 @@
 
   &.point--active {
     outline: 3px solid var(--progress-point-incomplete);
-    box-shadow: 0 2px 4px rgba(#000, 0.2),
+    box-shadow: 0 2px 4px var(--sl-shadow-color),
                 0 0 0 4px var(--progress-point-complete);
   }
 }

@@ -1,9 +1,9 @@
 import React from 'react'
 
 // import Salient Library
-import Card, {CardInfo, CardContent, CardTitle} from '../utils/Salient/UI/Card/Card';
-import Badge from '../utils/Salient/UI/Badge/Badge';
-import Table, {TableRow} from '../utils/Salient/UI/Table/Table';
+import { Card, CardInfo, CardContent, CardTitle } from '@ry4ngch/salient-react';
+import { Badge } from '@ry4ngch/salient-react';
+import { Table, TableRow } from '@ry4ngch/salient-react';
 import CodeBlock from '../components/Docs/CodeBlock';
 
 const BadgesDemo = () => {
@@ -17,7 +17,7 @@ const BadgesDemo = () => {
             </p>
 
             <h3>Import</h3>
-            <CodeBlock language="js" code={`import Badge from '../utils/Salient/UI/Badge/Badge';`} />
+            <CodeBlock language="js" code={`import { Badge } from '@ry4ngch/salient-react';`} />
 
             <h3>Basic Usage</h3>
             <CodeBlock code={`import Badge from './Badge';

@@ -4,11 +4,11 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 
 // import Salient Library
-import Card, {CardInfo, CardContent, CardTitle} from '../utils/Salient/UI/Card/Card';
+import { Card, CardInfo, CardContent, CardTitle } from '@ry4ngch/salient-react';
 
-import Timeline, {TimelineEvent} from '../utils/Salient/UI/Timeline/Timeline';
+import { Timeline, TimelineEvent } from '@ry4ngch/salient-react';
 import CodeBlock from '../components/Docs/CodeBlock';
-import Table, {TableRow} from '../utils/Salient/UI/Table/Table';
+import { Table, TableRow } from '@ry4ngch/salient-react';
 
 const TimelineDemo = () => {
   const [data, setData] = useState([]);
@@ -55,9 +55,9 @@ const TimelineDemo = () => {
             Feed it <code>TimelineEvent</code> children, optionally driven by async data (set <code>isLoading</code> while loading).
           </p>
           <h3>Import</h3>
-          <CodeBlock code={`import Timeline, {TimelineEvent} from '../utils/Salient/UI/Timeline/Timeline';`} language="js" />
+          <CodeBlock code={`import { Timeline, TimelineEvent } from '@ry4ngch/salient-react';`} language="js" />
           <h3>Basic Usage</h3>
-          <CodeBlock code={`import Timeline, {TimelineEvent} from '../utils/Salient/UI/Timeline/Timeline';
+          <CodeBlock code={`import { Timeline, TimelineEvent } from '@ry4ngch/salient-react';
 
 <Timeline
     showCount={4}

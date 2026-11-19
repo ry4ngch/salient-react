@@ -34,11 +34,13 @@
     "test:coverage": "jest --coverage",
     "lint": "eslint src",
     "build-babel": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch",
+    "prebuild": "pnpm run build:lib",
     "build": "webpack --mode production --config webpack.prod.js",
     "build:lib": "webpack --config webpack.lib.js",
     "build-file": "cross-env FILE=$npm_package_config_file babel $FILE --out-file=public/scripts/app.js --presets=env,react --watch",
     "demo": "cross-env echo $npm_package_config_file",
     "serve": "live-server public",
+    "predev-server": "pnpm run build:lib",
     "dev-server": "webpack serve --mode development --config webpack.dev.js --open --port 3000",
     "prepare": "pnpm run build:lib",
     "prepublishOnly": "pnpm run lint && pnpm run test"
