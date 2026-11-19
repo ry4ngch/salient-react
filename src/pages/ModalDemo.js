@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
 
 // import Salient Library
-import Button from '../utils/Salient/UI/Buttons/Button';
-import Card, {CardInfo, CardContent, CardTitle} from '../utils/Salient/UI/Card/Card';
-import Modal from '../utils/Salient/UI/Modal/Modal';
-import Table, {TableRow} from '../utils/Salient/UI/Table/Table';
+import { Button } from '@ry4ngch/salient-react';
+import { Card, CardInfo, CardContent, CardTitle } from '@ry4ngch/salient-react';
+import { Modal } from '@ry4ngch/salient-react';
+import { Table, TableRow } from '@ry4ngch/salient-react';
 import CodeBlock from '../components/Docs/CodeBlock';
 
 const ModalDemo = () => {
@@ -21,11 +21,11 @@ const ModalDemo = () => {
             </p>
 
             <h3>Import</h3>
-            <CodeBlock code={`import Modal from '../utils/Salient/UI/Modal/Modal';`} />
+            <CodeBlock code={`import { Modal } from '@ry4ngch/salient-react';`} />
 
             <h3>Basic Usage</h3>
             <CodeBlock code={`import React, {useState} from 'react';
-import Modal from '../utils/Salient/UI/Modal/Modal';
+import { Modal } from '@ry4ngch/salient-react';
 
 const Example = () => {
     const [showModal, setShowModal] = useState(false);

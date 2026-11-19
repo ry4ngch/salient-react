@@ -1,9 +1,9 @@
 import React, {useState, useContext} from "react";
-import List, {ListItem} from '../utils/Salient/UI/List/List';
+import { List, ListItem } from '@ry4ngch/salient-react';
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import NavigateContext from '../store/navigate-context';
-import Banner, {BannerContent} from "../utils/Salient/UI/Banner/Banner";
+import { Banner, BannerContent } from '@ry4ngch/salient-react';
 
 const Dashboard = () => {
     const navigate = useNavigate();

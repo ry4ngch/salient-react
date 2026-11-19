@@ -1,11 +1,11 @@
 import React, {useState} from 'react'
 
 // import Salient Library
-import Card, {CardInfo, CardTitle} from '../utils/Salient/UI/Card/Card';
-import Tab, {TabContent, TabItems} from '../utils/Salient/UI/Tab/Tab';
-import Button from '../utils/Salient/UI/Buttons/Button';
+import { Card, CardInfo, CardTitle } from '@ry4ngch/salient-react';
+import { Tab, TabContent, TabItems } from '@ry4ngch/salient-react';
+import { Button } from '@ry4ngch/salient-react';
 import CodeBlock from '../components/Docs/CodeBlock';
-import Table, {TableRow} from '../utils/Salient/UI/Table/Table';
+import { Table, TableRow } from '@ry4ngch/salient-react';
 
 const TabsDemo = () => {
     const [isSideTab, setTabType] = useState(false);
@@ -19,9 +19,9 @@ const TabsDemo = () => {
                 Tabs can be laid out stacked (vertical tab list) or as side tabs.
             </p>
             <h3>Import</h3>
-            <CodeBlock code={`import Tab, {TabContent, TabItems} from '../utils/Salient/UI/Tab/Tab';`} language="js" />
+            <CodeBlock code={`import { Tab, TabContent, TabItems } from '@ry4ngch/salient-react';`} language="js" />
             <h3>Basic Usage</h3>
-            <CodeBlock code={`import Tab, {TabContent, TabItems} from '../utils/Salient/UI/Tab/Tab';
+            <CodeBlock code={`import { Tab, TabContent, TabItems } from '@ry4ngch/salient-react';
 
 <Tab activeTabIndex={0}>
     <TabItems tabStyleActive="underline">

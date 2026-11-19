@@ -1,0 +1,443 @@
+// Salient unified theme
+//
+// Three tiers (same model as Material 3 / Bootstrap 5.3):
+//   1. primitives  — raw values, Sass-only, never used directly by components
+//   2. semantic    — CSS custom properties that components consume
+//   3. component   — thin aliases / knobs, defaulting to semantic tokens
+//
+// Components must read `var(--sl-*)`. A theme applied to any wrapper
+// (e.g. `[data-theme="dark"]`) re-colors every component inside it.
+
+/* -------------------------------------------------------------------------
+ * Tier 1 — primitives
+ * ---------------------------------------------------------------------- */
+$sl-blue-500: #2185d0;
+$sl-blue-600: #0275d8;
+$sl-blue-700: #1976d2;
+$sl-blue-soft: #e6eef9;
+$sl-indigo: #275efe;
+$sl-indigo-deep: #5a67d8;
+$sl-green: #2ba972;
+$sl-green-bright: #40bb93;
+$sl-red: #d9534f;
+$sl-red-deep: rgba(155, 44, 44);
+$sl-red-soft: #fde7ea;
+$sl-amber: #ff9900;
+$sl-cyan: #17a2b8;
+$sl-slate: #343a40;
+$sl-ink: #333;
+$sl-gray-50: #fdfcfc;
+$sl-gray-100: #f8f8f8;
+$sl-gray-150: #f5f5f5;
+$sl-gray-200: #edeff0;
+$sl-gray-250: #e5e5e5;
+$sl-gray-300: #ddd;
+$sl-gray-400: #ccc;
+$sl-gray-500: #999;
+$sl-gray-600: #777;
+$sl-gray-700: #666;
+$sl-gray-800: #616161;
+$sl-gray-900: #444;
+$sl-white: #fff;
+$sl-black: #000;
+$sl-chart-sunset: hsl(342, 92%, 46%);
+$sl-chart-forest: $sl-green-bright;
+$sl-chart-indigo: $sl-indigo-deep;
+
+/* -------------------------------------------------------------------------
+ * Tier 2 — semantic roles
+ * ---------------------------------------------------------------------- */
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
+  // Brand / status colours
+  --sl-primary: #{$sl-blue-500};
+  --sl-primary-rgb: 33 133 208;
+  --sl-on-primary: #{$sl-white};
+
+  --sl-action: #{$sl-indigo};
+  --sl-action-rgb: 39 94 254;
+
+  --sl-success: #{$sl-green};
+  --sl-success-rgb: 43 169 114;
+  --sl-on-success: #{$sl-white};
+  --sl-success-soft: rgb(var(--sl-success-rgb) / 0.2);
+
+  --sl-danger: #{$sl-red};
+  --sl-danger-rgb: 217 83 79;
+  --sl-on-danger: #{$sl-white};
+  --sl-danger-soft: #{$sl-red-soft};
+
+  --sl-warning: #{$sl-amber};
+  --sl-on-warning: #{$sl-white};
+  --sl-warning-soft: #{$sl-gray-150};
+
+  --sl-info: #{$sl-cyan};
+  --sl-on-info: #{$sl-white};
+  --sl-info-soft: #d9edf7;
+
+  --sl-neutral: #{$sl-gray-800};
+  --sl-neutral-soft: #{$sl-gray-150};
+
+  // Muted / disabled status (blue-grey, used by badges + banners)
+  --sl-muted: #59719d;
+  --sl-muted-rgb: 89 113 157;
+  --sl-muted-soft: rgb(var(--sl-muted-rgb) / 0.2);
+
+  // Surfaces + text
+  --sl-surface: #{$sl-white};
+  --sl-surface-alt: #{$sl-gray-100};
+  --sl-surface-sunken: #{$sl-gray-200};
+  --sl-surface-card: #{$sl-gray-50};
+  --sl-on-surface: #{$sl-gray-900};
+  --sl-text: #{$sl-ink};
+  --sl-text-muted: #{$sl-gray-700};
+  --sl-text-subtle: #{$sl-gray-600};
+
+  // Borders, overlays, shape
+  --sl-border: #{$sl-gray-300};
+  --sl-border-soft: #{$sl-gray-250};
+  --sl-border-strong: #{$sl-gray-400};
+  --sl-overlay: rgb(0 0 0 / 0.6);
+  --sl-overlay-strong: rgb(0 0 0 / 0.8);
+  --sl-shadow-color: rgb(0 0 0 / 0.2);
+  --sl-animation-pulse-rgb: 33 137 232;
+  --sl-radius: 5px;
+  --sl-radius-sm: 4px;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --sl-surface: #1b1f24;
+  --sl-surface-alt: #22272e;
+  --sl-surface-sunken: #2a3038;
+  --sl-surface-card: #22272e;
+  --sl-on-surface: #e6e6e6;
+  --sl-text: #e6e6e6;
+  --sl-text-muted: #aaa;
+  --sl-text-subtle: #888;
+
+  --sl-border: #3a3f45;
+  --sl-border-soft: #30363d;
+  --sl-border-strong: #4b525a;
+  --sl-overlay: rgb(0 0 0 / 0.75);
+  --sl-overlay-strong: rgb(0 0 0 / 0.9);
+  --sl-shadow-color: rgb(0 0 0 / 0.45);
+}
+
+/* -------------------------------------------------------------------------
+ * Tier 3 — component tokens
+ * ---------------------------------------------------------------------- */
+:root {
+  /* Breadcrumb */
+  --sl-breadcrumb-active-bg: hsl(223, 14%, 20%);
+  --sl-breadcrumb-active-text: var(--sl-primary);
+  --sl-breadcrumb-bg: var(--sl-surface-sunken);
+  --sl-breadcrumb-badge-bg: var(--sl-surface-alt);
+  --sl-breadcrumb-badge-text: hsl(223, 14%, 20%);
+  --sl-breadcrumb-text: #2c3f4c;
+
+  /* Tabs */
+  --sl-tabs-text: #{$sl-gray-900};
+  --sl-tabs-bg-active: #eee;
+  --sl-tabs-bg-hover: #d4d4d4;
+  --sl-tabs-bg: rgb(245 245 244);
+  --sl-tabs-text-hover: #525151;
+  --sl-tabs-border: #{$sl-gray-300};
+
+  /* Timeline */
+  --sl-timeline-main: #8d9e78;
+  --sl-timeline-sub: #3d405b;
+  --sl-timeline-func: rgb(168, 50, 121);
+  --sl-timeline-reverse: #fcfcfc;
+  --sl-timeline-line: #cdcdcd;
+  --sl-timeline-active: #ffad00;
+  --sl-timeline-active-rgb: 255 173 0;
+  --sl-timeline-accent: #ef795a;
+  --sl-timeline-surface-dark: #282936;
+
+  /* Checkbox / switch */
+  --sl-checkbox-active: #{$sl-indigo};
+  --sl-checkbox-active-inner: #{$sl-white};
+  --sl-checkbox-focus: rgb(39 94 254 / 0.3);
+  --sl-checkbox-border: #bbc1e1;
+  --sl-checkbox-border-hover: #{$sl-indigo};
+  --sl-checkbox-bg: #{$sl-white};
+  --sl-checkbox-disabled: #f6f8ff;
+  --sl-checkbox-disabled-inner: #e1e6f9;
+
+  /* Checkbox / switch themes */
+  --sl-checkbox-forest-active: hsl(153, 90%, 35%);
+  --sl-checkbox-forest-inner: hsl(223, 10%, 10%);
+  --sl-checkbox-forest-hover: #{$sl-green-bright};
+  --sl-checkbox-forest-focus: rgb(224 251 245 / 0.6);
+  --sl-checkbox-light-active: #{$sl-white};
+  --sl-checkbox-light-focus: rgb(255 255 255 / 0.6);
+  --sl-checkbox-light-inner: #555;
+  --sl-checkbox-dark-focus: rgb(14 30 37 / 0.12);
+  --sl-checkbox-sunset-active: #{$sl-red};
+  --sl-checkbox-sunset-inner: rgb(249 242 244);
+  --sl-checkbox-sunset-focus: #f9f2f4;
+  --sl-checkbox-sunset-hover: rgb(199 37 78);
+  --sl-checkbox-indigo-active: #3f51b5;
+  --sl-checkbox-indigo-border: #b8b8b8;
+  --sl-checkbox-indigo-focus: #e4e7f6;
+  --sl-switch-dark-active: #131339;
+  --sl-switch-dark-border: #d2d9ef;
+  --sl-switch-sunset-active: #ff6850;
+  --sl-switch-indigo-active: #{$sl-indigo-deep};
+  --sl-switch-light-hover: #555;
+
+  /* Field */
+  --sl-field-primary: #2563eb;
+  --sl-field-primary-rgb: 37 99 235;
+  --sl-field-success: #16a34a;
+  --sl-field-error: #dc2626;
+  --sl-field-error-rgb: 220 38 38;
+  --sl-field-error-bg: #fce4e4;
+  --sl-field-error-border: #cc0033;
+  --sl-field-text: #0f172a;
+  --sl-field-text-secondary: #64748b;
+  --sl-field-text-light: #94a3b8;
+  --sl-field-bg: #fff;
+  --sl-field-bg-tertiary: #f1f5f9;
+  --sl-field-border: #e2e8f0;
+  --sl-field-border-active: #3d6df9;
+  --sl-field-radius: 8px;
+
+  /* Slider */
+  --sl-slider-primary: #{$sl-blue-700};
+  --sl-slider-secondary: #e0eafc;
+  --sl-slider-text: #757575;
+  --sl-slider-gray-primary: #6b7280;
+  --sl-slider-gray-secondary: #e0e0e0;
+  --sl-slider-gray-text: #6b7280;
+  --sl-slider-dark-primary: #{$sl-slate};
+  --sl-slider-dark-secondary: #e0e0e0;
+  --sl-slider-dark-text: #{$sl-slate};
+
+  /* Badge status schemes */
+  --sl-badge-active: var(--sl-success);
+  --sl-badge-active-bg: var(--sl-success-soft);
+  --sl-badge-disabled: var(--sl-muted);
+  --sl-badge-disabled-bg: var(--sl-muted-soft);
+  --sl-badge-stall: #754c29;
+  --sl-badge-stall-bg: #f0e5dc;
+  --sl-badge-awaiting: #337ab7;
+  --sl-badge-awaiting-bg: #d9edf7;
+  --sl-badge-pending: #{$sl-gray-800};
+  --sl-badge-pending-bg: #{$sl-gray-150};
+  --sl-badge-loading: #5628ee;
+  --sl-badge-loading-bg: #ece7fe;
+  --sl-badge-cancel: #{$sl-red-deep};
+  --sl-badge-cancel-bg: var(--sl-danger-soft);
+  --sl-badge-idle: #daa520;
+  --sl-badge-idle-bg: #fbf7e7;
+
+  /* Banner themes */
+  --sl-banner-bg: #{$sl-gray-150};
+  --sl-banner-fg: #{$sl-gray-800};
+  --sl-banner-active: var(--sl-success);
+  --sl-banner-active-bg: var(--sl-success-soft);
+  --sl-banner-cancel: #{$sl-red-deep};
+  --sl-banner-cancel-bg: var(--sl-danger-soft);
+  --sl-banner-disabled: var(--sl-muted);
+  --sl-banner-disabled-bg: var(--sl-muted-soft);
+  --sl-banner-purple: #5125ad;
+  --sl-banner-teal: #{$sl-cyan};
+  --sl-banner-warn: #{$sl-amber};
+  --sl-banner-emergency: #bb2222;
+
+  /* Chart fills */
+  --sl-chart-fill: #{$sl-indigo};
+  --sl-chart-bg: #081921;
+  --sl-chart-sunset: #{$sl-chart-sunset};
+  --sl-chart-forest: #{$sl-chart-forest};
+  --sl-chart-indigo: #{$sl-chart-indigo};
+
+  /* Progress */
+  --sl-progress-track: #{$sl-gray-200};
+  --sl-progress-fill: var(--sl-primary);
+  --sl-progress-dark: hsl(223, 14%, 20%);
+  --sl-progress-forest: hsl(153, 90%, 35%);
+  --sl-progress-sunset: var(--sl-danger);
+
+  /* Sidebar */
+  --sl-sidebar-primary: var(--sl-primary);
+  --sl-sidebar-hover: var(--sl-surface-sunken);
+  --sl-sidebar-text: rgb(0 0 0 / 0.7);
+  --sl-sidebar-border: rgb(0 0 0 / 0.2);
+  --sl-sidebar-badge-bg: #{$sl-blue-soft};
+
+  /* Toolbar */
+  --sl-toolbar-light: #{$sl-white};
+  --sl-toolbar-dark: #{$sl-black};
+  --sl-toolbar-bg: var(--sl-toolbar-light);
+  --sl-toolbar-mist: light-dark(hsl(0 0% 80%), hsl(0 0% 30%));
+
+  /* Treeview */
+  --sl-tree-line: #222;
+  --sl-tree-line-inverse: whitesmoke;
+  --sl-tree-node-border: #{$sl-gray-500};
+  --sl-tree-node-bg-hover: #eee;
+
+  /* List */
+  --sl-list-bg: #{$sl-white};
+  --sl-list-border: #eee;
+
+  /* Accordion */
+  --sl-accordion-border: #dadada;
+  --sl-accordion-text: #{$sl-black};
+  --sl-accordion-hover-text: #525151;
+  --sl-accordion-hover-bg: #d4d4d4;
+  --sl-accordion-icon: #6c757d;
+  --sl-accordion-body-bg: #{$sl-white};
+  --sl-accordion-body-bg-collapsed: rgb(0 0 0 / 0.05);
+
+  /* Upload */
+  --sl-upload-border: #d9d9d9;
+  --sl-upload-bg: #fafafa;
+  --sl-upload-text: #{$sl-gray-700};
+  --sl-upload-text-strong: #{$sl-ink};
+  --sl-upload-drag-border: #7ba1db;
+  --sl-upload-hover-bg: #f0f0f0;
+  --sl-upload-hover-border: #{$sl-gray-500};
+  --sl-upload-accent: #0d60fd;
+  --sl-upload-accent-bg: #e6f0ff;
+  --sl-upload-accent-bg-hover: #f0f0ff;
+  --sl-upload-muted: #8c8c8c;
+
+  /* Modal / Drawer */
+  --sl-modal-surface: #{$sl-white};
+  --sl-modal-border: #eaeaea;
+  --sl-modal-close: #{$sl-ink};
+  --sl-drawer-surface: rgb(255 255 255 / 0.96);
+  --sl-drawer-close: #{$sl-ink};
+
+  /* Card */
+  --sl-card-bg: #{$sl-gray-50};
+  --sl-card-border: rgb(160 160 160 / 0.2);
+  --sl-card-glass-bg: rgb(255 255 255 / 0.1);
+  --sl-card-glass-border: rgb(255 255 255 / 0.2);
+  --sl-card-blur-bg: #ecf1f524;
+  --sl-card-price-bg: #79aecf;
+
+  /* Table */
+  --sl-table-border: #{$sl-gray-300};
+  --sl-table-btn-border: #adadad;
+  --sl-table-row-alt: rgb(224 224 224 / 0.3);
+  --sl-table-head-bg: rgb(243 244 246);
+  --sl-table-row-bg: #{$sl-white};
+  --sl-table-hover-bg: #ddd;
+  --sl-table-selected-bg: #e6eef9;
+  --sl-table-selected-border: rgb(147 197 253);
+  --sl-table-dropdown-border: rgba(0, 0, 0, 0.15);
+  --sl-table-dropdown-row-border: #e5e5e5;
+  --sl-table-drag-outline: #3aa0ff;
+}
+
+/* -------------------------------------------------------------------------
+ * Tabs / breadcrumb Sass aliases (kept for the existing partials)
+ * ---------------------------------------------------------------------- */
+$bc-bg-active-color: var(--sl-breadcrumb-active-bg);
+$bc-txt-active-color: var(--sl-breadcrumb-active-text);
+$bc-bg-color: var(--sl-breadcrumb-bg);
+$bc-badge-bg-color: var(--sl-breadcrumb-badge-bg);
+$bc-badge-txt-color: var(--sl-breadcrumb-badge-text);
+
+$color__main: var(--sl-tabs-text);
+$background__active: var(--sl-tabs-bg-active);
+$background__hover: var(--sl-tabs-bg-hover);
+$background__main: var(--sl-tabs-bg);
+$text__hover: var(--sl-tabs-text-hover);
+$border__color: var(--sl-tabs-border);
+
+$chart-fill-color: var(--sl-chart-fill);
+
+// Button (used with sass:color math, so must stay real Sass colours)
+$button-blueBlur-borderColor: rgb(249 250 251 / 55%);
+$button-blueBlur-bgColor: rgb(146 151 179 / 13%);
+$button-blueBlur-bghoverColor: rgba(16 18 27 / 40%);
+$button-text-color: whitesmoke;
+$button-blur-bgColor: hsla(0, 0%, 100%, 0.25);
+$button-clear-borderColor: rgba(255, 255, 255, 0.1);
+$button-clear-bgColor: rgba(255, 255, 255, 0.1);
+$button-clear-bgHoverColor: rgba(255, 255, 255, 0.2);
+$button-clear-borderHoverColor: rgba(255, 255, 255, 0.3);
+
+$color: (
+  main: var(--sl-timeline-main),
+  sub: var(--sl-timeline-sub),
+  func: var(--sl-timeline-func),
+  reverse: var(--sl-timeline-reverse),
+  line: var(--sl-timeline-line),
+  active: var(--sl-timeline-active),
+);
+
+/* -------------------------------------------------------------------------
+ * Navbar schemes
+ * Values live here; nav_v2 selectors consume the Sass aliases below.
+ * ---------------------------------------------------------------------- */
+$navbar-default-bgcolor: var(--sl-nav-default-bg);
+$navbar-default-color: var(--sl-nav-default-fg);
+$navbar-default-hoverbg: var(--sl-nav-default-hover-bg);
+$navbar-default-hovercolor: var(--sl-nav-default-hover-fg);
+
+$navbar-dark-bgcolor: var(--sl-nav-dark-bg);
+$navbar-dark-color: var(--sl-nav-dark-fg);
+$navbar-dark-hoverbg: var(--sl-nav-dark-hover-bg);
+$navbar-dark-hovercolor: var(--sl-nav-dark-hover-fg);
+
+$navbar-offwhite-bgcolor: var(--sl-nav-offwhite-bg);
+$navbar-offwhite-color: var(--sl-nav-offwhite-fg);
+$navbar-offwhite-hoverbg: var(--sl-nav-offwhite-hover-bg);
+$navbar-offwhite-hovercolor: var(--sl-nav-offwhite-hover-fg);
+
+$navbar-grayscale-bgcolor: var(--sl-nav-grayscale-bg);
+$navbar-grayscale-color: var(--sl-nav-grayscale-fg);
+$navbar-grayscale-hoverbg: var(--sl-nav-grayscale-hover-bg);
+$navbar-grayscale-hovercolor: var(--sl-nav-grayscale-hover-fg);
+
+$navbar-blue-bgcolor: var(--sl-nav-blue-bg);
+$navbar-blue-color: var(--sl-nav-blue-fg);
+$navbar-blue-hoverbg: var(--sl-nav-blue-hover-bg);
+$navbar-blue-hovercolor: var(--sl-nav-blue-hover-fg);
+
+$navbar-navy-bgcolor: var(--sl-nav-navy-bg);
+$navbar-navy-color: var(--sl-nav-navy-fg);
+$navbar-navy-hoverbg: var(--sl-nav-navy-hover-bg);
+$navbar-navy-hovercolor: var(--sl-nav-navy-hover-fg);
+
+:root {
+  --sl-nav-default-bg: #ededed;
+  --sl-nav-default-fg: #{$sl-black};
+  --sl-nav-default-hover-bg: #{$sl-gray-300};
+  --sl-nav-default-hover-fg: #{$sl-ink};
+
+  --sl-nav-dark-bg: #{$sl-slate};
+  --sl-nav-dark-fg: #{$sl-white};
+  --sl-nav-dark-hover-bg: #080808;
+  --sl-nav-dark-hover-fg: rgb(255 255 255 / 0.75);
+
+  --sl-nav-offwhite-bg: #{$sl-gray-100};
+  --sl-nav-offwhite-fg: #{$sl-gray-600};
+  --sl-nav-offwhite-hover-bg: #e7e7e7;
+  --sl-nav-offwhite-hover-fg: #555;
+
+  --sl-nav-grayscale-bg: #{$sl-gray-100};
+  --sl-nav-grayscale-fg: #{$sl-ink};
+  --sl-nav-grayscale-hover-bg: #{$sl-ink};
+  --sl-nav-grayscale-hover-fg: #{$sl-white};
+
+  --sl-nav-blue-bg: #{$sl-blue-500};
+  --sl-nav-blue-fg: #def1f0;
+  --sl-nav-blue-hover-bg: #def1f0;
+  --sl-nav-blue-hover-fg: #{$sl-blue-600};
+
+  --sl-nav-navy-bg: #101827;
+  --sl-nav-navy-fg: #{$sl-white};
+  --sl-nav-navy-hover-bg: #1d283c;
+  --sl-nav-navy-hover-fg: #{$sl-white};
+}

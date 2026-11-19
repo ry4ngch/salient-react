@@ -1,6 +1,6 @@
 import React from "react";
-import Sidebar, {SideBarItem} from "../utils/Salient/UI/Sidebar/Sidebar";
-import Table, {TableRow} from '../utils/Salient/UI/Table/Table';
+import { Sidebar, SideBarItem } from '@ry4ngch/salient-react';
+import { Table, TableRow } from '@ry4ngch/salient-react';
 import CodeBlock from '../components/Docs/CodeBlock';
 
 const SideBarDemo = () => {
@@ -15,7 +15,7 @@ const SideBarDemo = () => {
             </p>
 
             <h3>Import</h3>
-            <CodeBlock language="js" code={`import Sidebar, {SideBarItem} from '../utils/Salient/UI/Sidebar/Sidebar';`} />
+            <CodeBlock language="js" code={`import { Sidebar, SideBarItem } from '@ry4ngch/salient-react';`} />
 
             <h3>Basic Usage</h3>
             <CodeBlock code={`import Sidebar, {SideBarItem} from './Sidebar';

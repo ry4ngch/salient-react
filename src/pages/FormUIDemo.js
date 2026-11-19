@@ -2,18 +2,18 @@ import React, {useRef, useState} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // import Salient Library
-import Card, {CardInfo, CardContent, CardTitle} from '../utils/Salient/UI/Card/Card';
-import Dropdown, {DropdownItem} from '../utils/Salient/UI/Form/Dropdown';
-import FormAffix from '../utils/Salient/UI/Form/FormAffix';
-import NumericField from '../utils/Salient/UI/Form/NumericField';
-import RangeSlider from '../utils/Salient/UI/Form/RangeSlider';
-import TextField from '../utils/Salient/UI/Form/TextField';
-import ChoiceField from '../utils/Salient/UI/Form/ChoiceField';
-import DateField from '../utils/Salient/UI/Form/DateField';
-import ColorField from '../utils/Salient/UI/Form/ColorField';
-import FileField from '../utils/Salient/UI/Form/FileField';
-import Grid, {GridRow, GridItem} from '../utils/Salient/UI/Grid/Grid';
-import Table, {TableRow} from '../utils/Salient/UI/Table/Table';
+import { Card, CardInfo, CardContent, CardTitle } from '@ry4ngch/salient-react';
+import { Dropdown, DropdownItem } from '@ry4ngch/salient-react';
+import { FormAffix } from '@ry4ngch/salient-react';
+import { NumericField } from '@ry4ngch/salient-react';
+import { RangeSlider } from '@ry4ngch/salient-react';
+import { TextField } from '@ry4ngch/salient-react';
+import { ChoiceField } from '@ry4ngch/salient-react';
+import { DateField } from '@ry4ngch/salient-react';
+import { ColorField } from '@ry4ngch/salient-react';
+import { FileField } from '@ry4ngch/salient-react';
+import { Grid, GridRow, GridItem } from '@ry4ngch/salient-react';
+import { Table, TableRow } from '@ry4ngch/salient-react';
 import CodeBlock from '../components/Docs/CodeBlock';
 const FormUIsDemo = () => {
   const testNumericFieldCallback = (returnVal) => {
@@ -38,15 +38,15 @@ const FormUIsDemo = () => {
 
 
             <h3>Import</h3>
-            <CodeBlock code={`import Dropdown, {DropdownItem} from '../utils/Salient/UI/Form/Dropdown';
-import FormAffix from '../utils/Salient/UI/Form/FormAffix';
-import NumericField from '../utils/Salient/UI/Form/NumericField';
-import TextField from '../utils/Salient/UI/Form/TextField';
-import RangeSlider from '../utils/Salient/UI/Form/RangeSlider';
-import ChoiceField from '../utils/Salient/UI/Form/ChoiceField';
-import DateField from '../utils/Salient/UI/Form/DateField';
-import ColorField from '../utils/Salient/UI/Form/ColorField';
-import FileField from '../utils/Salient/UI/Form/FileField';`} />
+            <CodeBlock code={`import { Dropdown, DropdownItem } from '@ry4ngch/salient-react';
+import { FormAffix } from '@ry4ngch/salient-react';
+import { NumericField } from '@ry4ngch/salient-react';
+import { TextField } from '@ry4ngch/salient-react';
+import { RangeSlider } from '@ry4ngch/salient-react';
+import { ChoiceField } from '@ry4ngch/salient-react';
+import { DateField } from '@ry4ngch/salient-react';
+import { ColorField } from '@ry4ngch/salient-react';
+import { FileField } from '@ry4ngch/salient-react';`} />
 
             <h3>Basic Usage</h3>
             <CodeBlock code={`<TextField

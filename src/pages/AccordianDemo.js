@@ -4,10 +4,10 @@ import React, {useState} from 'react'
 import {accordianData} from '../containers/demo_data';
 
 // import Salient Library
-import Card, {CardInfo, CardContent, CardTitle} from '../utils/Salient/UI/Card/Card';
-import Accordian, {AccordianItem} from '../utils/Salient/UI/Accordian/Accordian';
+import { Card, CardInfo, CardContent, CardTitle } from '@ry4ngch/salient-react';
+import { Accordian, AccordianItem } from '@ry4ngch/salient-react';
 import CodeBlock from '../components/Docs/CodeBlock';
-import Table, {TableRow} from '../utils/Salient/UI/Table/Table';
+import { Table, TableRow } from '@ry4ngch/salient-react';
 
 const AccordianDemo = () => {
     const [accordianOption, setAccordianOption] = useState("single");
@@ -24,9 +24,9 @@ const AccordianDemo = () => {
                 Use <code>activeToggle</code> to allow one panel open at a time or several at once.
             </p>
             <h3>Import</h3>
-            <CodeBlock code={`import Accordian, {AccordianItem} from '../utils/Salient/UI/Accordian/Accordian';`} language="js" />
+            <CodeBlock code={`import { Accordian, AccordianItem } from '@ry4ngch/salient-react';`} language="js" />
             <h3>Basic Usage</h3>
-            <CodeBlock code={`import Accordian, {AccordianItem} from '../utils/Salient/UI/Accordian/Accordian';
+            <CodeBlock code={`import { Accordian, AccordianItem } from '@ry4ngch/salient-react';
 
 <Accordian activeToggle="single">
     <AccordianItem title="What is Salient?" content="Salient is a React UI library." />

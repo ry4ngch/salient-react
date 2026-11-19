@@ -1,17 +1,18 @@
+@use "salient-theme" as *;
 .list-group {
     width: 100%;  
     transition: all 0.3s ease-in-out;
     list-style: none;
-    outline: 1px solid rgba(160, 160, 160, 0.2);
+    outline: 1px solid var(--sl-card-border);
 
     ul {
-       background-color: #fff;
+       background-color: var(--sl-list-bg);
        border-radius: 5px;
        position: relative;
     }
 
     .list-item {
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid var(--sl-list-border);
         //box-shadow: 0 1px 0 0px inset;
         padding: 15px;
         margin: auto;
@@ -22,19 +23,19 @@
         }
 
         &.list-highlight:hover {
-            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            box-shadow: 0 0 20px var(--sl-shadow-color);
         }
     }
 
     &.list--dark {
-        background-color: #343a40;
-        color: #fff;
+        background-color: var(--sl-surface-sunken);
+        color: var(--sl-on-surface);
 
         .list-item {
             border-color: oklch(0.439 0 0);
 
             &.list-highlight:hover {
-                box-shadow: 0 0 20px rgba(0,0,0,0.5);
+                box-shadow: 0 0 20px rgb(0 0 0 / 0.5);
             }
         }
     }

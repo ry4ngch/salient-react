@@ -2,9 +2,9 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // import Salient Library
-import Card, {CardInfo, CardContent, CardTitle} from '../utils/Salient/UI/Card/Card';
-import Breadcrumb from '../utils/Salient/UI/Breadcrumb/Breadcrumb';
-import Table, {TableRow} from '../utils/Salient/UI/Table/Table';
+import { Card, CardInfo, CardContent, CardTitle } from '@ry4ngch/salient-react';
+import { Breadcrumb } from '@ry4ngch/salient-react';
+import { Table, TableRow } from '@ry4ngch/salient-react';
 import CodeBlock from '../components/Docs/CodeBlock';
 
 
@@ -20,7 +20,7 @@ const BreadcrumbsDemo = () => {
             </p>
 
             <h3>Import</h3>
-            <CodeBlock language="js" code={`import Breadcrumb from '../utils/Salient/UI/Breadcrumb/Breadcrumb';`} />
+            <CodeBlock language="js" code={`import { Breadcrumb } from '@ry4ngch/salient-react';`} />
 
             <h3>Basic Usage</h3>
             <CodeBlock code={`import Breadcrumb from './Breadcrumb';

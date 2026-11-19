@@ -6,8 +6,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 // import Bootstrap styles
 import './styles/custom-bootstrap.scss';
 
-// import fontawesome styles
-import './utils/FontAwesome/fontAwesome';
+// import Salient library styles (from the built package)
+import '@ry4ngch/salient-react/dist/salient-react.css';
 
 // import personal styles
 import './styles/styles.scss';
@@ -32,7 +32,6 @@ import BadgesDemo from './pages/BadgesDemo';
 import BannersDemo from './pages/BannersDemo';
 import SidebarDemo from './pages/SidebarDemo';
 import ProgressDemo from './pages/ProgressDemo';
-import Table2 from './components/TestTables/Table2';
 import ChartDemo from './pages/ChartDemo';
 import GridDemo from './pages/GridDemo';
 import MaintenancePage from './Maintenance';

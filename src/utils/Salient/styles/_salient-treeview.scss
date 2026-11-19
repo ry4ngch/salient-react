@@ -1,14 +1,15 @@
+@use "salient-theme" as *;
 // Adapted from: https://codepen.io/cbolson/pen/gOVrZpz
 // Minor modification with animation and caret
 .bg-dark .list-tree {
-    --tree-clr: whitesmoke;
+    --tree-clr: var(--sl-tree-line-inverse);
     span:not(.comment):hover {
-        color: hsl(223, 14%, 20%);
+        color: var(--sl-progress-dark);
     }
 }
 
 .list-tree {
-    --tree-clr: #222;
+    --tree-clr: var(--sl-tree-line);
     --tree-font-size: 1rem;
     --tree-item-height: 2;
     --tree-offset: 1.5rem;
@@ -61,13 +62,13 @@
     }
 
     & span:not(.comment) {
-        border: 1px solid #999;
+        border: 1px solid var(--sl-tree-node-border);
         border-radius: 5px;
         padding: 3px 8px;
         margin-left: 10px;
 
         &:hover {
-            background: #eee;
+            background: var(--sl-tree-node-bg-hover);
             cursor: pointer;
         }
 

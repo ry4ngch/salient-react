@@ -1,3 +1,4 @@
+@use "salient-theme" as *;
 .upload-wrapper {
     margin: 0 auto;
 
@@ -10,8 +11,8 @@
         gap: 16px;
         align-self: stretch;
         border-radius: 8px;
-        border: 1px solid #D9D9D9;
-        background: #FAFAFA;
+        border: 1px solid var(--sl-upload-border);
+        background: var(--sl-upload-bg);
         width: 100%;
         box-sizing: border-box;
         position: relative;
@@ -19,17 +20,17 @@
 
     .upload-icon {
         font-size: 2rem;
-        color: #666;
+        color: var(--sl-upload-text);
         margin-bottom: 8px;
     }
 
     .upload-text {
         margin: 0;
-        color: #333;
+        color: var(--sl-upload-text-strong);
     }
 
     .dropzone {
-        border: 3px dashed #7ba1db;
+        border: 3px dashed var(--sl-upload-drag-border);
         border-radius: 3px;
         width: 60%;
         display: flex;
@@ -41,20 +42,20 @@
     }
 
     .dropzone.dragover {
-        background: #f0f0f0;
-        border-color: #999;
+        background: var(--sl-upload-hover-bg);
+        border-color: var(--sl-upload-hover-border);
         scale: 1.05;
     }
 
     .or-text {
         margin: 0;
-        color: #666;
+        color: var(--sl-upload-text);
         font-size: 1rem;
     }
 
     .choose-btn {
-        border: 1px solid #0D60FD;
-        color: #0D60FD;
+        border: 1px solid var(--sl-upload-accent);
+        color: var(--sl-upload-accent);
         padding: 10px 20px;
         border-radius: 5px;
         cursor: pointer;
@@ -65,7 +66,7 @@
     }
 
     .choose-btn:hover {
-        background-color: #e6f0ff;
+        background-color: var(--sl-upload-accent-bg);
     }
 
     .file-input {
@@ -88,15 +89,15 @@
         align-items: center;
         gap: 24px;
         border-radius: 4px;
-        border: 1px solid #D9D9D9;
-        background: #FAFAFA;
+        border: 1px solid var(--sl-upload-border);
+        background: var(--sl-upload-bg);
         cursor: grab; /* Changed to grab for reordering */
         box-sizing: border-box;
         transition: all 0.2s;
     }
 
     .file-item:hover {
-        background: #f0f0f0;
+        background: var(--sl-upload-hover-bg);
     }
 
     .file-item.dragging {
@@ -104,18 +105,18 @@
     }
 
     .file-item.drag-over {
-        background: #f0f0ff;
-        border-color: #0D60FD;
+        background: var(--sl-upload-accent-bg-hover);
+        border-color: var(--sl-upload-accent);
     }
 
     .file-icon {
-        color: #666;
+        color: var(--sl-upload-text);
         min-width: 16px;
     }
 
     .file-name {
         flex: 1;
-        color: #333;
+        color: var(--sl-upload-text-strong);
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -123,7 +124,7 @@
 
     .remove-btn {
         cursor: pointer;
-        color: #000;
+        color: var(--sl-text);
         padding: 4px;
         transition: color 0.2s;
         opacity: 0.6;
@@ -144,7 +145,7 @@
     }
 
     .upload-footer-text {
-        color: #8C8C8C;
+        color: var(--sl-upload-muted);
         font-weight: 400;
         line-height: 22px;
     }

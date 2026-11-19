@@ -1,12 +1,12 @@
 import React, {useState} from 'react'
 
 // import Salient Library
-import Button from '../utils/Salient/UI/Buttons/Button';
-import Card, {CardInfo, CardContent, CardTitle} from '../utils/Salient/UI/Card/Card';
-import Drawer from '../utils/Salient/UI/Drawer/Drawer';
+import { Button } from '@ry4ngch/salient-react';
+import { Card, CardInfo, CardContent, CardTitle } from '@ry4ngch/salient-react';
+import { Drawer } from '@ry4ngch/salient-react';
 import CodeBlock from '../components/Docs/CodeBlock';
-import ChoiceField from '../utils/Salient/UI/Form/ChoiceField';
-import Table, {TableRow} from '../utils/Salient/UI/Table/Table';
+import { ChoiceField } from '@ry4ngch/salient-react';
+import { Table, TableRow } from '@ry4ngch/salient-react';
 
 const DrawerDemo = () => {
   const [showDrawer, setShowDrawer] = useState(false);
@@ -22,12 +22,12 @@ const DrawerDemo = () => {
             </p>
 
             <h3>Import</h3>
-            <CodeBlock code={`import Drawer from '../utils/Salient/UI/Drawer/Drawer';`} />
+            <CodeBlock code={`import { Drawer } from '@ry4ngch/salient-react';`} />
 
             <h3>Basic Usage</h3>
             <CodeBlock code={`import React, {useState} from 'react';
-import Drawer from '../utils/Salient/UI/Drawer/Drawer';
-import Button from '../utils/Salient/UI/Buttons/Button';
+import { Drawer } from '@ry4ngch/salient-react';
+import { Button } from '@ry4ngch/salient-react';
 
 const Example = () => {
     const [showDrawer, setShowDrawer] = useState(false);

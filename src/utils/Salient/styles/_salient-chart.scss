@@ -1,10 +1,10 @@
+@use "salient-theme" as *;
 @use 'sass:color';
 
 
-$chart-fill-color: #275EFE;
 :root {
-  --chart-fill-color: #{$chart-fill-color};
-  --chart-fill-bgColor: #081921;
+  --chart-fill-color: var(--sl-chart-fill);
+  --chart-fill-bgColor: var(--sl-chart-bg);
   --chart-bar-size: 8px;
 }
 
@@ -20,31 +20,31 @@ $chart-fill-color: #275EFE;
 
     /* Theme */
     &.chart-fill--sunset{
-      --chart-fill-color: hsl(342, 92%, 46%);
+      --chart-fill-color: var(--sl-chart-sunset);
 
       .chart--bar:hover {
         .chart--fill {
-          @include color-scheme(hsl(342, 92%, 46%));
+          @include color-scheme($sl-chart-sunset);
         }
       }
     }
 
     &.chart-fill--forest{
-      --chart-fill-color: #40bb93;
+      --chart-fill-color: var(--sl-chart-forest);
 
       .chart--bar:hover {
         .chart--fill {
-          @include color-scheme(#40bb93);
+          @include color-scheme($sl-chart-forest);
         }
       }
     }
 
     &.chart-fill--indigo{
-      --chart-fill-color: #5a67d8;
+      --chart-fill-color: var(--sl-chart-indigo);
 
       .chart--bar:hover {
         .chart--fill {
-          @include color-scheme(#5a67d8);
+          @include color-scheme($sl-chart-indigo);
         }
       }
     }
@@ -84,9 +84,8 @@ $chart-fill-color: #275EFE;
 
     .chart--bar:hover {
       .chart--fill {
-        //background: color.adjust($chart-fill-color, $lightness: 5%);
-        @include color-scheme($chart-fill-color);
-        box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+        background: color-mix(in srgb, var(--chart-fill-color), white 5%);
+        box-shadow: 0 0 2px 1px var(--sl-shadow-color);
       }
     }
   

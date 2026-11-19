@@ -2,12 +2,12 @@ import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
-import Button from '../utils/Salient/UI/Buttons/Button';
-import Card, {CardInfo, CardContent, CardTitle} from '../utils/Salient/UI/Card/Card';
-import Badge from '../utils/Salient/UI/Badge/Badge';
-import Progress from '../utils/Salient/UI/Progress/Progress';
-import Modal from '../utils/Salient/UI/Modal/Modal';
-import Banner, {BannerContent} from '../utils/Salient/UI/Banner/Banner';
+import { Button } from '@ry4ngch/salient-react';
+import { Card, CardInfo, CardContent, CardTitle } from '@ry4ngch/salient-react';
+import { Badge } from '@ry4ngch/salient-react';
+import { Progress } from '@ry4ngch/salient-react';
+import { Modal } from '@ry4ngch/salient-react';
+import { Banner, BannerContent } from '@ry4ngch/salient-react';
 
 import styles from '../styles/pages/Showcase.module.css';
 

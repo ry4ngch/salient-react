@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
 
 // import Salient Library
-import Button from '../utils/Salient/UI/Buttons/Button';
-import Card, {CardInfo, CardContent, CardTitle} from '../utils/Salient/UI/Card/Card';
-import Table, {TableRow} from '../utils/Salient/UI/Table/Table';
+import { Button } from '@ry4ngch/salient-react';
+import { Card, CardInfo, CardContent, CardTitle } from '@ry4ngch/salient-react';
+import { Table, TableRow } from '@ry4ngch/salient-react';
 import CodeBlock from '../components/Docs/CodeBlock';
 
 const ButtonsDemo = () => {
@@ -14,7 +14,7 @@ const ButtonsDemo = () => {
             <p>Button is a single component that renders buttons, toggle switches, and checkboxes depending on the type prop. It supports several visual styles, color modes, and a widget (icon-only) variant.</p>
 
             <h3>Import</h3>
-            <CodeBlock code={`import Button from '../utils/Salient/UI/Buttons/Button';`} />
+            <CodeBlock code={`import { Button } from '@ry4ngch/salient-react';`} />
 
             <h3>Basic Usage</h3>
             <CodeBlock code={`<Button type="button" buttonStyle="blueBlur" isBlock={true} expandFull={true}>Button1</Button>

@@ -34,6 +34,11 @@ module.exports = {
 
   resolve: {
     extensions: ['.js', '.jsx', '.scss', '.css'],
+    alias: {
+      // Consume the built library exactly like an installed npm package
+      '@ry4ngch/salient-react$': path.resolve(__dirname, 'dist/index.js'),
+      '@ry4ngch/salient-react/dist/salient-react.css$': path.resolve(__dirname, 'dist/salient-react.css'),
+    },
   },
 
   plugins: [

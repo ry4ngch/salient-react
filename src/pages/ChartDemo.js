@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import Chart, {BarChart} from "../utils/Salient/UI/Chart/BarChart";
-import Card, {CardContent, CardInfo, CardTitle} from '../utils/Salient/UI/Card/Card';
-import Table, {TableRow} from '../utils/Salient/UI/Table/Table';
+import { Chart, BarChart } from '@ry4ngch/salient-react';
+import { Card, CardContent, CardInfo, CardTitle } from '@ry4ngch/salient-react';
+import { Table, TableRow } from '@ry4ngch/salient-react';
 import CodeBlock from '../components/Docs/CodeBlock';
 
 const dummy_data = [
@@ -30,7 +30,7 @@ const ChartDemo = () => {
             <p>Chart renders a horizontal or vertical bar chart. Each bar is a BarChart child providing a label and value; the Chart parent handles orientation, label placement, value normalization, and themes.</p>
 
             <h3>Import</h3>
-            <CodeBlock code={`import Chart, {BarChart} from '../utils/Salient/UI/Chart/BarChart';`} />
+            <CodeBlock code={`import { Chart, BarChart } from '@ry4ngch/salient-react';`} />
 
             <h3>Basic Usage</h3>
             <CodeBlock code={`const data = [

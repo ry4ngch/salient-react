@@ -1,7 +1,7 @@
 import React from 'react';
-import Card, {CardContent} from '../utils/Salient/UI/Card/Card';
-import Grid, {GridRow, GridItem} from '../utils/Salient/UI/Grid/Grid';
-import Table, {TableRow} from '../utils/Salient/UI/Table/Table';
+import { Card, CardContent } from '@ry4ngch/salient-react';
+import { Grid, GridRow, GridItem } from '@ry4ngch/salient-react';
+import { Table, TableRow } from '@ry4ngch/salient-react';
 import CodeBlock from '../components/Docs/CodeBlock';
 
 const IconsDemo = () => {

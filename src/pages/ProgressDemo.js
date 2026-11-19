@@ -1,9 +1,9 @@
 import React, {useState} from "react";
-import Progress from "../utils/Salient/UI/Progress/Progress";
-import Card, {CardInfo, CardContent, CardTitle} from '../utils/Salient/UI/Card/Card';
-import Button from '../utils/Salient/UI/Buttons/Button';
+import { Progress } from '@ry4ngch/salient-react';
+import { Card, CardInfo, CardContent, CardTitle } from '@ry4ngch/salient-react';
+import { Button } from '@ry4ngch/salient-react';
 import CodeBlock from '../components/Docs/CodeBlock';
-import Table, {TableRow} from '../utils/Salient/UI/Table/Table';
+import { Table, TableRow } from '@ry4ngch/salient-react';
 
 const ProgressDemo = () => {
     const [progressType, setProgressType] = useState('linear');
@@ -43,7 +43,7 @@ const ProgressDemo = () => {
                 see how far along they are.
             </p>
             <h3>Import</h3>
-            <CodeBlock code={`import Progress from '../utils/Salient/UI/Progress/Progress';`} />
+            <CodeBlock code={`import { Progress } from '@ry4ngch/salient-react';`} />
             <h3>Basic Usage</h3>
             <CodeBlock code={`<Progress
     progressItems={['Cart', 'Checkout', 'Payment', 'Confirm']}

@@ -1,8 +1,8 @@
 import React from 'react'
 
 // import Salient Library
-import Card, {CardInfo, CardContent, CardTitle} from '../utils/Salient/UI/Card/Card';
-import Table, {TableRow} from '../utils/Salient/UI/Table/Table';
+import { Card, CardInfo, CardContent, CardTitle } from '@ry4ngch/salient-react';
+import { Table, TableRow } from '@ry4ngch/salient-react';
 import CodeBlock from '../components/Docs/CodeBlock';
 
 const CardsDemo = () => {
@@ -12,7 +12,7 @@ const CardsDemo = () => {
         <p>Card is a flexible content container. Compose it with CardInfo (header), CardTitle and CardContent (body) to build structured panels, and apply an animation prop for hover effects.</p>
 
         <h3>Import</h3>
-        <CodeBlock code={`import Card, {CardInfo, CardContent, CardTitle} from '../utils/Salient/UI/Card/Card';`} />
+        <CodeBlock code={`import { Card, CardInfo, CardContent, CardTitle } from '@ry4ngch/salient-react';`} />
 
         <h3>Basic Usage</h3>
         <CodeBlock code={`<Card className="card-border">

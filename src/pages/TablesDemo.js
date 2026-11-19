@@ -5,9 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {docs} from '../containers/demo_data';
 
 // import Salient Library
-import Card, {CardInfo, CardContent, CardTitle} from '../utils/Salient/UI/Card/Card';
-import Table, {TableRow} from '../utils/Salient/UI/Table/TableV2';
-import withPagination from '../utils/Salient/UI/Pagination/withPagination';
+import { Card, CardInfo, CardContent, CardTitle } from '@ry4ngch/salient-react';
+import { Table, TableRow } from '@ry4ngch/salient-react';
+import { withPagination } from '@ry4ngch/salient-react';
 
 import CodeBlock from '../components/Docs/CodeBlock';
 
@@ -48,13 +48,10 @@ const TablesDemo = () => {
       <p>Table renders tabular data with built-in sorting, column toggling, row selection, drag-and-drop row reordering, and optional pagination. Rows are declared as <code> &lt;TableRow&gt;</code> children whose cells use <code>data-field</code> attributes matching the column names.</p>
 
       <h3>Import</h3>
-      <CodeBlock code={`import Table, {TableRow} from '../utils/Salient/UI/Table/TableV2';
+      <CodeBlock code={`import { Table, TableRow, withPagination } from '@ry4ngch/salient-react';
 
- // classic table (column toggle UI is not available in the classic version)
- import Table, {TableRow} from '../utils/Salient/UI/Table/Table';
-
- // wrap with withPagination for a paginated table
- import withPagination from '../utils/Salient/UI/Pagination/withPagination`} />
+// wrap withPagination for a paginated table
+const PaginatedTable = withPagination()(Table);`} />
 
       <h3>Basic Usage</h3>
       <CodeBlock code={`<Table
